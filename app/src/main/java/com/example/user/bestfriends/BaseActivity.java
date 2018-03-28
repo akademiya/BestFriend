@@ -1,6 +1,7 @@
 package com.example.user.bestfriends;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -66,6 +67,11 @@ public class BaseActivity extends AppCompatActivity {
 
                 case R.id.nav_settings:
                     startActivity(SettingsView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
+                case R.id.nav_send:
+                    startActivity(new Intent(Intent.ACTION_SEND));
                     fullView.closeDrawers();
                     return true;
 
