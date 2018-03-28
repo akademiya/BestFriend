@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/button_back"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginStart="@dimen/menu_icon_margin"-->
+            <!--android:src="@drawable/ic_menu_white"-->
+            <!--android:tint="@color/white" />-->
+
+            <TextView
+                style="@style/Toolbar.TitleText"
+                android:text="@string/calendar" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <CalendarView
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/text_calendar_day"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/parent_margin"
+        android:layout_marginEnd="@dimen/parent_margin"
+        android:layout_marginStart="@dimen/parent_margin"
+        tools:text="Today 2018, 3-th month, 21 days" />
+
+    <Switch
+        android:id="@+id/calendar_push_notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/parent_margin"
+        android:layout_marginStart="@dimen/parent_margin"
+        android:text="@string/calendar_push" />
+
+</LinearLayout>

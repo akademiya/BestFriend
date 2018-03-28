@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">BestFriends</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    // Settings
+    <string name="action_settings">Настройки</string>
+    <string name="calendar_push">Включить уведомления</string>
+    <string name="notification_video">Подписаться на новые видео</string>
+    <string name="notification_birthday">Уведомления о днях рождения</string>
+    <string name="notification_calendar">Уведомления о дате</string>
+    <string name="description_notif_calendar">Уведомление о дате будет приходить каждое утро в 6:00</string>
+
+    // Timer
+    <string name="start">Старт</string>
+    <string name="stop">Стоп</string>
+    <string name="reset">Сброс</string>
+
+    // drawer navigation
+    <string name="home_page">Главная</string>
+    <string name="tp_video">Видео</string>
+    <string name="books">Книги</string>
+    <string name="note">Речи</string>
+    <string name="calendar">Календарь</string>
+    <string name="kido_list">Список Кидо</string>
+    <string name="birthday">Дни рождения</string>
+    <string name="contact">Контакты</string>
+    <string name="settings">Настройки</string>
+    <string name="communicate">Связаться</string>
+    <string name="share">Поделиться</string>
+    <string name="send">Отправить сообщение</string>
+</resources>

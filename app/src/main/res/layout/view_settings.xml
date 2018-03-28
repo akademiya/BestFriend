@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--<ImageView-->
+            <!--android:id="@+id/button_back"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginStart="@dimen/menu_icon_margin"-->
+            <!--android:src="@drawable/ic_menu_white"-->
+            <!--android:tint="@color/white" />-->
+
+            <TextView
+                style="@style/Toolbar.TitleText"
+                android:text="@string/settings" />
+
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <Switch
+        android:id="@+id/notification_new_video"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/switch_height"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="@dimen/parent_margin"
+        android:paddingStart="@dimen/parent_margin"
+        android:text="@string/notification_video" />
+
+    <Switch
+        android:id="@+id/notification_birthday"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/switch_height"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="@dimen/parent_margin"
+        android:paddingStart="@dimen/parent_margin"
+        android:text="@string/notification_birthday" />
+
+    <Switch
+        android:id="@+id/notification_calendar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/switch_height"
+        android:layout_marginTop="8dp"
+        android:paddingEnd="@dimen/parent_margin"
+        android:paddingStart="@dimen/parent_margin"
+        android:text="@string/notification_calendar" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/parent_margin"
+        android:layout_marginStart="@dimen/parent_margin"
+        android:text="@string/description_notif_calendar"
+        android:textSize="10sp" />
+
+</LinearLayout>
