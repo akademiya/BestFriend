@@ -21,7 +21,7 @@
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/edge_margins"
         android:layout_marginStart="@dimen/toolbar_title_margin"
-        android:layout_toStartOf="@+id/check_people"
+        android:layout_toStartOf="@+id/container_msg"
         android:gravity="center_vertical"
         android:orientation="vertical">
 
@@ -29,8 +29,9 @@
             android:id="@+id/contact_name"
             style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/item_height"
             android:ellipsize="end"
+            android:gravity="center_vertical"
             android:maxLines="1"
             android:textStyle="bold"
             tools:text="Остап Бендер" />
@@ -39,74 +40,86 @@
             android:id="@+id/info_birthday"
             style="@style/TextStyle_Body2_Primary_Dark"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/item_height"
+            android:gravity="center_vertical"
             android:maxLines="1"
             android:text="25.02.1987"
             android:visibility="visible"
             tools:visibility="visible" />
 
-        <RelativeLayout
-            android:id="@+id/container_info_telephone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/info_telephone"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/item_height"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="+38 099 1234567"
             android:visibility="visible"
-            tools:visibility="visible">
+            tools:visibility="visible" />
 
-            <TextView
-                android:id="@+id/info_telephone"
-                style="@style/TextStyle_Body2_Primary_Dark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:text="+38 099 1234567" />
-
-            <ImageView
-                android:id="@+id/contact_send_call"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toStartOf="@+id/contact_send_soc"
-                android:layout_marginEnd="24dp"
-                android:src="@drawable/ic_phone"
-                android:tint="@color/colorPrimary" />
-
-            <ImageView
-                android:id="@+id/contact_send_soc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_menu_send"
-                android:tint="@color/colorPrimary" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/container_info_email"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/info_email"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/item_height"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:text="ostap@mailinator.com"
             android:visibility="visible"
-            tools:visibility="visible">
-
-            <TextView
-                android:id="@+id/info_email"
-                style="@style/TextStyle_Body2_Primary_Dark"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:maxLines="1"
-                android:text="ostap@mailinator.com" />
-
-            <ImageView
-                android:id="@+id/contact_send_email"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:src="@drawable/ic_email"
-                android:tint="@color/colorPrimary" />
-        </RelativeLayout>
+            tools:visibility="visible" />
 
         <TextView
             android:id="@+id/info_chukpok"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/item_height"
+            android:gravity="center_vertical"
             tools:text="chukpok" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/container_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="@dimen/edge_margins"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/contact_send_call"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_ripple"
+            android:padding="12dp"
+            android:src="@drawable/ic_phone"
+            android:tint="@color/colorPrimary"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/contact_send_soc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_ripple"
+            android:padding="12dp"
+            android:src="@drawable/ic_menu_send"
+            android:tint="@color/colorPrimary"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/contact_send_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_ripple"
+            android:padding="12dp"
+            android:src="@drawable/ic_email"
+            android:tint="@color/colorPrimary"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
     </LinearLayout>
 
     <View

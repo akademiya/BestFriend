@@ -7,6 +7,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <dimen name="parent_margin">16dp</dimen>
+    <dimen name="margin8">8dp</dimen>
 
     // Toolbar
     <dimen name="toolbar_title_margin">72dp</dimen>
@@ -16,7 +17,7 @@
     // List item, view
     <dimen name="item_kido_container">68dp</dimen>
     <dimen name="item_books_container">68dp</dimen>
-    <dimen name="item_contact_container">130dp</dimen>
+    <dimen name="item_contact_container">150dp</dimen>
     <dimen name="img_people_parameter">40dp</dimen>
     <dimen name="edge_margins">16dp</dimen>
 
@@ -25,4 +26,7 @@
 
     // button chronometer
     <dimen name="switch_height">48dp</dimen>
+
+    // contact
+    <dimen name="item_height">26dp</dimen>
 </resources>
