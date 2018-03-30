@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/listKidoView"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/white"
+        android:foreground="?android:selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/create_person_photo"
+            android:layout_width="@dimen/img_people_parameter"
+            android:layout_height="@dimen/img_people_parameter"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/edge_margins"
+            tools:src="@drawable/ic_person" />
+
+        <EditText
+            android:id="@+id/create_person_name"
+            style="@style/TextStyle_Body2_Primary_Dark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:layout_marginStart="@dimen/toolbar_title_margin"
+            android:layout_toStartOf="@+id/check_people"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:hint="Остап Бендер" />
+
+        <CheckBox
+            android:id="@+id/check_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/edge_margins"
+            android:buttonTint="@color/primary" />
+
+        <View
+            style="@style/AppTheme.HorizontalViewDivider"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/toolbar_title_margin" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="@dimen/parent_margin"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:paddingEnd="20dp"
+        android:paddingStart="20dp"
+        android:text="Create new person"
+        android:textColor="@color/white" />
+</LinearLayout>
