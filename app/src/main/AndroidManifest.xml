@@ -26,10 +26,10 @@
         <activity android:name=".notes.NotesView"/>
         <activity android:name=".calendar.HCalendarView"/>
         <activity android:name=".list_kido.ListKidoView"/>
+        <activity android:name=".list_kido.PersonView"/>
         <activity android:name=".video.VideoView"/>
         <activity android:name=".contacts.ContactsView"/>
         <activity android:name=".settings.SettingsView"/>
-        <activity android:name=".list_kido.CreatePersonView"/>
         <activity android:name=".MainView"/>
 
     </application>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <RelativeLayout
         android:id="@+id/listKidoView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/white"
-        android:foreground="?android:selectableItemBackground">
+        android:background="@color/white">
 
         <ImageView
             android:id="@+id/create_person_photo"
@@ -19,7 +18,7 @@
             android:layout_height="@dimen/img_people_parameter"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/edge_margins"
-            tools:src="@drawable/ic_person" />
+            android:src="@drawable/ic_person" />
 
         <EditText
             android:id="@+id/create_person_name"
@@ -29,37 +28,14 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/edge_margins"
             android:layout_marginStart="@dimen/toolbar_title_margin"
-            android:layout_toStartOf="@+id/check_people"
             android:ellipsize="end"
-            android:maxLines="1"
-            tools:hint="Остап Бендер" />
-
-        <CheckBox
-            android:id="@+id/check_people"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="@dimen/edge_margins"
-            android:buttonTint="@color/primary" />
+            android:hint="Остап Бендер"
+            android:inputType="textCapWords"
+            android:maxLines="1" />
 
         <View
             style="@style/AppTheme.HorizontalViewDivider"
-            android:layout_alignParentBottom="true"
-            android:layout_marginStart="@dimen/toolbar_title_margin" />
+            android:layout_alignParentBottom="true" />
 
     </RelativeLayout>
-
-    <Button
-        android:id="@+id/create_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="@dimen/parent_margin"
-        android:layout_marginTop="20dp"
-        android:background="@color/colorAccent"
-        android:paddingEnd="20dp"
-        android:paddingStart="20dp"
-        android:text="Create new person"
-        android:textColor="@color/white" />
 </LinearLayout>

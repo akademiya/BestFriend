@@ -1,20 +1,15 @@
 package com.example.user.bestfriends.list_kido;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.PrimaryKey;
-
-@Entity
 public class Person {
-
-    @PrimaryKey(autoGenerate = true)
     private int personID;
-
-    @ColumnInfo(name = "personPhoto")
     private int personPhoto;
-
-    @ColumnInfo(name = "personName")
     private String personName;
+
+    public Person(int personID, int personPhoto, String personName) {
+        this.personID = personID;
+        this.personPhoto = personPhoto;
+        this.personName = personName;
+    }
 
     public Person(int personPhoto, String personName) {
         this.personPhoto = personPhoto;
@@ -24,7 +19,6 @@ public class Person {
     public int getPersonID() {
         return personID;
     }
-
     public void setPersonID(int personID) {
         this.personID = personID;
     }
@@ -32,7 +26,6 @@ public class Person {
     public int getPersonPhoto() {
         return personPhoto;
     }
-
     public void setPersonPhoto(int personPhoto) {
         this.personPhoto = personPhoto;
     }
@@ -40,7 +33,6 @@ public class Person {
     public String getPersonName() {
         return personName;
     }
-
     public void setPersonName(String personName) {
         this.personName = personName;
     }

@@ -12,6 +12,13 @@
     <string name="notification_calendar">Уведомления о дате</string>
     <string name="description_notif_calendar">Уведомление о дате будет приходить каждое утро в 6:00</string>
 
+    // Dialog
+    <string name="add_new_person">Add new person</string>
+    <string name="add_person">Add person</string>
+    <string name="cancel">Cancel</string>
+    <string name="task_cancelled">Задача отменена</string>
+    <string name="something_wrong">Что-то пошло не так. Проверьте свои входные значения</string>
+
     // Timer
     <string name="start">Старт</string>
     <string name="stop">Стоп</string>

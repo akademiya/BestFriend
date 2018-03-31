@@ -7,6 +7,7 @@
     android:layout_height="@dimen/item_kido_container"
     android:background="@color/white"
     android:clickable="true"
+    android:focusable="true"
     android:foreground="?android:selectableItemBackground">
 
     <ImageView
@@ -15,7 +16,7 @@
         android:layout_height="@dimen/img_people_parameter"
         android:layout_centerVertical="true"
         android:layout_marginStart="@dimen/edge_margins"
-        tools:src="@drawable/ic_people" />
+        tools:src="@drawable/ic_person" />
 
     <TextView
         android:id="@+id/person_name"
@@ -25,18 +26,30 @@
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/edge_margins"
         android:layout_marginStart="@dimen/toolbar_title_margin"
-        android:layout_toStartOf="@+id/check_people"
+        android:layout_toStartOf="@+id/delete_item"
         android:ellipsize="end"
         android:maxLines="1"
         tools:text="Остап Бендер" />
+
+    <ImageView
+        android:id="@+id/delete_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="24dp"
+        android:layout_toStartOf="@+id/check_people"
+        android:padding="12dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="visible"
+        tools:visibility="visible" />
 
     <CheckBox
         android:id="@+id/check_people"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:buttonTint="@color/primary"
         android:layout_alignParentEnd="true"
-        android:layout_marginEnd="@dimen/edge_margins" />
+        android:layout_marginEnd="@dimen/edge_margins"
+        android:buttonTint="@color/primary" />
 
     <View
         style="@style/AppTheme.HorizontalViewDivider"

@@ -78,6 +78,7 @@
     </RelativeLayout>
 
     <FrameLayout
+        android:id="@+id/activity_to_do"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -89,12 +90,16 @@
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"
-            android:clickable="true"
-            android:focusable="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
-            android:src="@drawable/ic_add" />
+            android:src="@drawable/ic_add"
+            app:rippleColor="@color/primary" />
+
+        <include
+            android:id="@+id/list_kido_empty"
+            layout="@layout/view_list_kido_empty"
+            android:visibility="gone" />
     </FrameLayout>
 </LinearLayout>
