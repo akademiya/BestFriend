@@ -5,14 +5,14 @@ public class Person {
     private int personPhoto;
     private String personName;
 
-    public Person(int personID, int personPhoto, String personName) {
+    public Person(int personID, String personName) {
         this.personID = personID;
-        this.personPhoto = personPhoto;
+//        this.personPhoto = personPhoto;
         this.personName = personName;
     }
 
-    public Person(int personPhoto, String personName) {
-        this.personPhoto = personPhoto;
+    public Person(String personName) {
+//        this.personPhoto = personPhoto;
         this.personName = personName;
     }
 

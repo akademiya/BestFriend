@@ -34,7 +34,7 @@ public class PersonView extends BaseActivity {
     private List<Person> allPersons;
     private FloatingActionButton fab;
     private FrameLayout fLayout;
-    RelativeLayout list_kido_empty;
+    private RelativeLayout list_kido_empty;
 
     private Chronometer mChronometer;
     private Button startChronometer;
@@ -84,7 +84,7 @@ public class PersonView extends BaseActivity {
         View subView = inflater.inflate(R.layout.item_edit_list_kido, null);
 
         final EditText nameField = subView.findViewById(R.id.create_person_name);
-        final ImageView create_person_photo = subView.findViewById(R.id.create_person_photo);
+//        final ImageView create_person_photo = subView.findViewById(R.id.create_person_photo);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.add_new_person);
@@ -93,13 +93,12 @@ public class PersonView extends BaseActivity {
 
         builder.setPositiveButton(R.string.add_person, (dialog, which) -> {
             final String name = nameField.getText().toString();
-            final int photo = Integer.parseInt(create_person_photo.getDrawable().toString());
+//            final int photo = Integer.parseInt(create_person_photo.getDrawable().toString());
 
-            if(TextUtils.isEmpty(name) || photo <= 0){
+            if(TextUtils.isEmpty(name)){ // || photo <= 0
                 Toast.makeText(PersonView.this, R.string.something_wrong, Toast.LENGTH_SHORT).show();
-            }
-            else{
-                Person newPerson = new Person(photo, name);
+            } else {
+                Person newPerson = new Person(name);
                 database.addPerson(newPerson);
 
                 //refresh the activity

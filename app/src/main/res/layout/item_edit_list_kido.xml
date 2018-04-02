@@ -12,13 +12,13 @@
         android:layout_height="70dp"
         android:background="@color/white">
 
-        <ImageView
-            android:id="@+id/create_person_photo"
-            android:layout_width="@dimen/img_people_parameter"
-            android:layout_height="@dimen/img_people_parameter"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/edge_margins"
-            android:src="@drawable/ic_person" />
+        <!--<ImageView-->
+            <!--android:id="@+id/create_person_photo"-->
+            <!--android:layout_width="@dimen/img_people_parameter"-->
+            <!--android:layout_height="@dimen/img_people_parameter"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginStart="@dimen/edge_margins"-->
+            <!--android:src="@drawable/ic_person" />-->
 
         <EditText
             android:id="@+id/create_person_name"

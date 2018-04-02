@@ -18,7 +18,7 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     private static final String TABLE_PERSONS = "persons";
 
     private static final String COLUMN_ID = "_id";
-    private static final String COLUMN_PERSONPHOTO = "photo";
+//    private static final String COLUMN_PERSONPHOTO = "photo";
     private static final String COLUMN_PERSONNAME = "personname";
 
     public SqliteDatabase(Context context) {
@@ -30,7 +30,7 @@ public class SqliteDatabase extends SQLiteOpenHelper {
         String CREATE_PERSON_TABLE = "CREATE TABLE "
                 + TABLE_PERSONS + "("
                 + COLUMN_ID + " INTEGER PRIMARY KEY,"
-                + COLUMN_PERSONPHOTO + " INTEGER,"
+//                + COLUMN_PERSONPHOTO + " INTEGER,"
                 + COLUMN_PERSONNAME + " TEXT" + ")";
         db.execSQL(CREATE_PERSON_TABLE);
     }
@@ -49,9 +49,9 @@ public class SqliteDatabase extends SQLiteOpenHelper {
         if(cursor.moveToFirst()){
             do{
                 int id = Integer.parseInt(cursor.getString(0));
-                int photo = Integer.parseInt(cursor.getString(1));
-                String name = cursor.getString(2);
-                storePerson.add(new Person(id, photo, name));
+                String name = cursor.getString(1);
+//                int photo = Integer.parseInt(cursor.getString(2));
+                storePerson.add(new Person(id, name));
             }while (cursor.moveToNext());
         }
         cursor.close();
@@ -61,7 +61,7 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     public void addPerson(Person person){
         ContentValues values = new ContentValues();
         values.put(COLUMN_PERSONNAME, person.getPersonName());
-        values.put(String.valueOf(COLUMN_PERSONPHOTO), person.getPersonPhoto());
+//        values.put(String.valueOf(COLUMN_PERSONPHOTO), person.getPersonPhoto());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_PERSONS, null, values);
     }
@@ -69,7 +69,7 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     public void updatePerson(Person person){
         ContentValues values = new ContentValues();
         values.put(COLUMN_PERSONNAME, person.getPersonName());
-        values.put(String.valueOf(COLUMN_PERSONPHOTO), person.getPersonPhoto());
+//        values.put(String.valueOf(COLUMN_PERSONPHOTO), person.getPersonPhoto());
         SQLiteDatabase db = this.getWritableDatabase();
         db.update(TABLE_PERSONS, values, COLUMN_ID	+ "	= ?", new String[] { String.valueOf(person.getPersonID())});
     }
@@ -81,9 +81,9 @@ public class SqliteDatabase extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,	null);
         if	(cursor.moveToFirst()){
             int id = Integer.parseInt(cursor.getString(0));
-            int personPhoto = Integer.parseInt(cursor.getString(1));
-            String personName = cursor.getString(2);
-            mPerson = new Person(id, personPhoto, personName);
+            String personName = cursor.getString(1);
+//            int personPhoto = Integer.parseInt(cursor.getString(2));
+            mPerson = new Person(id, personName);
         }
         cursor.close();
         return mPerson;
