@@ -12,14 +12,6 @@
         android:layout_height="70dp"
         android:background="@color/white">
 
-        <!--<ImageView-->
-            <!--android:id="@+id/create_person_photo"-->
-            <!--android:layout_width="@dimen/img_people_parameter"-->
-            <!--android:layout_height="@dimen/img_people_parameter"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginStart="@dimen/edge_margins"-->
-            <!--android:src="@drawable/ic_person" />-->
-
         <EditText
             android:id="@+id/create_person_name"
             style="@style/TextStyle_Body2_Primary_Dark"
@@ -27,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginEnd="@dimen/edge_margins"
-            android:layout_marginStart="@dimen/toolbar_title_margin"
+            android:layout_marginStart="@dimen/edge_margins"
             android:ellipsize="end"
             android:hint="Остап Бендер"
             android:inputType="textCapWords"

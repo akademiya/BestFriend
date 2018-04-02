@@ -10,14 +10,6 @@
     android:focusable="true"
     android:foreground="?android:selectableItemBackground">
 
-    <ImageView
-        android:id="@+id/person_photo"
-        android:layout_width="@dimen/img_people_parameter"
-        android:layout_height="@dimen/img_people_parameter"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="@dimen/edge_margins"
-        tools:src="@drawable/ic_person" />
-
     <TextView
         android:id="@+id/person_name"
         style="@style/TextStyle_Body2_Primary_Dark"
@@ -25,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginEnd="@dimen/edge_margins"
-        android:layout_marginStart="@dimen/toolbar_title_margin"
+        android:layout_marginStart="@dimen/edge_margins"
         android:layout_toStartOf="@+id/delete_item"
         android:ellipsize="end"
         android:maxLines="1"
@@ -54,5 +46,5 @@
     <View
         style="@style/AppTheme.HorizontalViewDivider"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/toolbar_title_margin" />
+        android:layout_marginStart="@dimen/edge_margins" />
 </RelativeLayout>

@@ -37,14 +37,12 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonHolder> {
     public void onBindViewHolder(@NonNull PersonHolder holder, int position) {
         final Person singlePerson = personList.get(position);
 
-        holder.personPhoto.setImageResource(R.drawable.ic_person);
         holder.personName.setText(singlePerson.getPersonName());
         holder.deleteItem.setOnClickListener(v -> {
             database.deleteItem(singlePerson.getPersonID());
             ((Activity)context).finish();
             context.startActivity(((Activity) context).getIntent());
         });
-        holder.containerPersonList.setOnClickListener(v -> holder.check_people.isSelected());
     }
 
 
