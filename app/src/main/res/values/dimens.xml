@@ -23,6 +23,8 @@
 
     // text size
     <dimen name="text_size">16sp</dimen>
+    <dimen name="text_size_mense">20sp</dimen>
+
 
     // button chronometer
     <dimen name="switch_height">48dp</dimen>

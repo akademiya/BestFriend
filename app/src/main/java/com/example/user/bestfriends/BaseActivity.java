@@ -16,6 +16,7 @@ import com.example.user.bestfriends.calendar.HCalendarView;
 import com.example.user.bestfriends.contacts.ContactsView;
 import com.example.user.bestfriends.list_kido.ListKidoView;
 import com.example.user.bestfriends.list_kido.PersonView;
+import com.example.user.bestfriends.mense.MenseView;
 import com.example.user.bestfriends.settings.SettingsView;
 import com.example.user.bestfriends.video.VideoView;
 
@@ -39,15 +40,15 @@ public class BaseActivity extends AppCompatActivity {
                     fullView.closeDrawers();
                     return true;
 
+                case R.id.nav_mense:
+                    startActivity(MenseView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
                 case R.id.nav_books:
                     startActivity(BooksView.getStartIntent(this));
                     fullView.closeDrawers();
                     return true;
-
-//                case R.id.nav_note:
-//                    startActivity(NotesView.getStartIntent(this));
-//                    fullView.closeDrawers();
-//                    return true;
 
                 case R.id.nav_calendar:
                     startActivity(HCalendarView.getStartIntent(this));

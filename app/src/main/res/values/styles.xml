@@ -74,6 +74,15 @@
         <item name="android:textSize">@dimen/text_size</item>
     </style>
 
+    <style name="Kajon_mense" parent="AppTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily" tools:ignore="NewApi">sans-serif</item>
+        <item name="android:textSize">@dimen/text_size_mense</item>
+        <item name="android:layout_marginBottom">25dp</item>
+        <item name="android:lineSpacingExtra">10dp</item>
+    </style>
+
 
     // Button Chronometer
     <style name="ButtonChronometer" parent="Widget.AppCompat.Button.Borderless">

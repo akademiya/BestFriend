@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".BaseActivity"/>
         <activity android:name=".books.BooksView"/>
-        <activity android:name=".notes.NotesView"/>
+        <activity android:name=".mense.MenseView"/>
         <activity android:name=".calendar.HCalendarView"/>
         <activity android:name=".list_kido.ListKidoView"/>
         <activity android:name=".list_kido.PersonView"/>
