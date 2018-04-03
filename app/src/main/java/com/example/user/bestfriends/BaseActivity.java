@@ -1,20 +1,17 @@
 package com.example.user.bestfriends;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.ShareActionProvider;
 import android.widget.FrameLayout;
 
 import com.example.user.bestfriends.books.BooksView;
 import com.example.user.bestfriends.calendar.HCalendarView;
 import com.example.user.bestfriends.contacts.ContactsView;
-import com.example.user.bestfriends.list_kido.ListKidoView;
 import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.mense.MenseView;
 import com.example.user.bestfriends.settings.SettingsView;
@@ -81,8 +78,14 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.nav_share:
-                    Intent i = new Intent();
-                    ShareActionProvider mShareActionProvider;
+
+                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                    sharingIntent.setType("text/plain");
+                    String shareBody = "Here is the share content body";
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "BestFriend");
+                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                    startActivity(Intent.createChooser(sharingIntent, "Поделиться:"));
+
                     fullView.closeDrawers();
                     return true;
 
