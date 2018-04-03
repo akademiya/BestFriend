@@ -15,6 +15,7 @@
     // Dialog
     <string name="add_new_person">Add new person</string>
     <string name="add_person">Add person</string>
+    <string name="edit_person">Edit person</string>
     <string name="cancel">Cancel</string>
     <string name="task_cancelled">Задача отменена</string>
     <string name="something_wrong">Что-то пошло не так. Проверьте свои входные значения</string>
