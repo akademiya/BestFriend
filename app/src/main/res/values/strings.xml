@@ -19,6 +19,7 @@
     <string name="cancel">Cancel</string>
     <string name="task_cancelled">Задача отменена</string>
     <string name="something_wrong">Что-то пошло не так. Проверьте свои входные значения</string>
+    <string name="error_email">Неверный Email</string>
 
     // Timer
     <string name="start">Старт</string>

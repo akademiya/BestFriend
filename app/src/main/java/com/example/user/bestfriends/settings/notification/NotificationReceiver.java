@@ -1,4 +1,4 @@
-package com.example.user.bestfriends.calendar.notification;
+package com.example.user.bestfriends.settings.notification;
 
 
 import android.app.AlarmManager;

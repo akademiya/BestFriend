@@ -37,10 +37,12 @@
         style="@style/TextStyle_Body2_Primary_Dark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:digits="0123456789+ -"
+        android:digits="0123456789+"
         android:ellipsize="end"
         android:hint="+380991234567"
+        android:imeOptions="actionNext"
         android:inputType="phone"
+        android:maxLength="14"
         android:maxLines="1" />
 
     <View style="@style/AppTheme.HorizontalViewDivider" />

@@ -75,7 +75,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
         if (!singleContacts.getPersonEmail().isEmpty()) {
             if (!singleContacts.getPersonEmail().matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")) {
                 holder.person_email.setError("Invalid Email address");
-                Toast.makeText(context, R.string.something_wrong, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.error_email, Toast.LENGTH_SHORT).show();
             }
             holder.person_email.setText(singleContacts.getPersonEmail());
             holder.send_email.setOnClickListener(v -> {
