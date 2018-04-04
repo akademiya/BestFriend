@@ -60,6 +60,8 @@ public class PersonView extends BaseActivity {
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> addTaskDialog());
 
+        showOrHideFab();
+
         database = new SqliteDatabase(this);
         allPersons = database.listPerson();
 
@@ -72,6 +74,18 @@ public class PersonView extends BaseActivity {
             list_kido_empty.setVisibility(View.VISIBLE);
         }
 
+    }
+
+    private void showOrHideFab() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fab.getVisibility() == View.VISIBLE) {
+                    fab.hide();
+                } else if (dy < 0 && fab.getVisibility() != View.VISIBLE) { fab.show(); }
+            }
+        });
     }
 
     private void addTaskDialog() {

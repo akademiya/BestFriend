@@ -3,10 +3,8 @@ package com.example.user.bestfriends.contacts;
 
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -24,9 +22,6 @@ import com.example.user.bestfriends.BaseActivity;
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.contacts.adapter.ContactsAdapter;
 import com.example.user.bestfriends.contacts.database.SqliteDatabase;
-import com.example.user.bestfriends.contacts.model.ContactsStub;
-import com.example.user.bestfriends.list_kido.Person;
-import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.settings.SettingsView;
 
 import java.util.List;
@@ -81,6 +76,8 @@ public class ContactsView extends BaseActivity {
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> addTaskDialog());
 
+        showOrHideFab();
+
         database = new SqliteDatabase(this);
         allContacts = database.listContacts();
 
@@ -92,6 +89,17 @@ public class ContactsView extends BaseActivity {
             recyclerView.setVisibility(View.GONE);
             list_contacts_empty.setVisibility(View.VISIBLE);
         }
+    }
+
+    private void showOrHideFab() {
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (dy > 0 && fab.getVisibility() == View.VISIBLE) { fab.hide(); }
+                else if(dy < 0 && fab.getVisibility() != View.VISIBLE) { fab.show(); }
+            }
+        });
     }
 
     private void addTaskDialog() {

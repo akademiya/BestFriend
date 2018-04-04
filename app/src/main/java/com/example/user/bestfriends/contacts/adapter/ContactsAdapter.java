@@ -48,13 +48,13 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
         holder.person_photo.setImageResource(R.drawable.ic_person);
         holder.person_name.setText(singleContacts.getPersonName());
 
-        if (singleContacts.getPersonBirthday() != null) {
+        if (!singleContacts.getPersonBirthday().isEmpty()) {
             holder.person_birthday.setText(singleContacts.getPersonBirthday());
         } else {
             holder.person_birthday.setVisibility(View.GONE);
         }
 
-        if (singleContacts.getPersonTelephone() != null) {
+        if (!singleContacts.getPersonTelephone().isEmpty()) {
             holder.person_telephone.setText(singleContacts.getPersonTelephone());
 
             holder.send_call.setOnClickListener(v -> {
@@ -72,7 +72,11 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
             holder.send_soc.setVisibility(View.GONE);
         }
 
-        if (singleContacts.getPersonEmail() != null) {
+        if (!singleContacts.getPersonEmail().isEmpty()) {
+            if (!singleContacts.getPersonEmail().matches("[a-zA-Z0-9._-]+@[a-z]+.[a-z]+")) {
+                holder.person_email.setError("Invalid Email address");
+                Toast.makeText(context, R.string.something_wrong, Toast.LENGTH_SHORT).show();
+            }
             holder.person_email.setText(singleContacts.getPersonEmail());
             holder.send_email.setOnClickListener(v -> {
                 String toEmail = singleContacts.getPersonEmail();
