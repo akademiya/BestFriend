@@ -52,5 +52,10 @@
             android:layout_gravity="bottom|end"
             android:layout_margin="@dimen/fab_margin"
             android:src="@drawable/ic_add" />
+
+        <include
+            android:id="@+id/list_kido_empty"
+            layout="@layout/view_list_kido_empty"
+            android:visibility="gone" />
     </FrameLayout>
 </LinearLayout>

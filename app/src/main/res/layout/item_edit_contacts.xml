@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/parent_margin"
+    android:paddingStart="@dimen/parent_margin">
+
+    <EditText
+        android:id="@+id/create_contact_name"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="Остап Бендер"
+        android:inputType="textCapWords"
+        android:maxLines="1" />
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+
+    <EditText
+        android:id="@+id/create_contact_birthday"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="2 февраля"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+
+    <EditText
+        android:id="@+id/create_contact_telephone"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="+380991234567"
+        android:inputType="phone"
+        android:maxLines="1" />
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+
+    <EditText
+        android:id="@+id/create_contact_email"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="bender@gmail.com"
+        android:inputType="textEmailAddress"
+        android:maxLines="1" />
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+
+    <EditText
+        android:id="@+id/create_contact_chukpok"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:hint="family status"
+        android:inputType="text"
+        android:maxLines="1" />
+
+    <View style="@style/AppTheme.HorizontalViewDivider" />
+</LinearLayout>

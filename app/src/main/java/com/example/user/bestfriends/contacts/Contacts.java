@@ -3,6 +3,7 @@ package com.example.user.bestfriends.contacts;
 
 public class Contacts {
 
+    private int contactsID;
     private int personPhoto;
     private String personName;
     private String personBirthday;
@@ -10,18 +11,40 @@ public class Contacts {
     private String personEmail;
     private String personChukpok;
 
-    public Contacts(int personPhoto,
+    public Contacts(int contactsID,
                     String personName,
                     String personBirthday,
                     String personTelephone,
                     String personEmail,
                     String personChukpok) {
-        this.personPhoto = personPhoto;
+        this.contactsID = contactsID;
+//        this.personPhoto = personPhoto;
         this.personName = personName;
         this.personBirthday = personBirthday;
         this.personTelephone = personTelephone;
         this.personEmail = personEmail;
         this.personChukpok = personChukpok;
+    }
+
+    public Contacts(String personName,
+                    String personBirthday,
+                    String personTelephone,
+                    String personEmail,
+                    String personChukpok) {
+//        this.personPhoto = personPhoto;
+        this.personName = personName;
+        this.personBirthday = personBirthday;
+        this.personTelephone = personTelephone;
+        this.personEmail = personEmail;
+        this.personChukpok = personChukpok;
+    }
+
+    public int getContactsID() {
+        return contactsID;
+    }
+
+    public void setContactsID(int contactsID) {
+        this.contactsID = contactsID;
     }
 
     public int getPersonPhoto() {

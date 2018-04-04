@@ -3,28 +3,42 @@ package com.example.user.bestfriends.contacts;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.user.bestfriends.BaseActivity;
 import com.example.user.bestfriends.R;
+import com.example.user.bestfriends.contacts.adapter.ContactsAdapter;
+import com.example.user.bestfriends.contacts.database.SqliteDatabase;
 import com.example.user.bestfriends.contacts.model.ContactsStub;
+import com.example.user.bestfriends.list_kido.Person;
+import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.settings.SettingsView;
 
 import java.util.List;
 
-public class ContactsView extends BaseActivity implements IContacts.View {
+public class ContactsView extends BaseActivity {
 
+    private SqliteDatabase database;
     private RecyclerView recyclerView;
     private ContactsAdapter adapter;
-    private IContacts.Presenter presenter;
-    private ContactsAdapter.ContactsHolder holder;
+    private List<Contacts> allContacts;
+    private FloatingActionButton fab;
+    private RelativeLayout list_contacts_empty;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,42 +69,75 @@ public class ContactsView extends BaseActivity implements IContacts.View {
     // TODO: end app bar menu переход в activity по клику на item
 
     public static Intent getStartIntent(Context context) {
-        Intent intent = new Intent(context, ContactsView.class);
-        return intent;
+        return new Intent(context, ContactsView.class);
     }
 
     public void init() {
-        presenter = new ContactsPresenter(this, new ContactsStub());
         recyclerView = findViewById(R.id.rv_list_contacts);
+        list_contacts_empty = findViewById(R.id.list_kido_empty);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new ContactsAdapter(this);
-        recyclerView.setAdapter(adapter);
-        listener.onRefresh();
-    }
+        recyclerView.setHasFixedSize(true);
 
-    private final SwipeRefreshLayout.OnRefreshListener listener = () -> presenter.loadListContacts();
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(v -> addTaskDialog());
 
-    @Override
-    public void showListContacts(List<Contacts> list) { adapter.setListContacts(list); }
+        database = new SqliteDatabase(this);
+        allContacts = database.listContacts();
 
-    @Override
-    public void showContainerBirthday() {
-        if (holder.person_birthday != null){
-            Toast.makeText(this, "др существует, ура!", Toast.LENGTH_SHORT).show();
+        if (allContacts.size() > 0) {
+            recyclerView.setVisibility(View.VISIBLE);
+            adapter = new ContactsAdapter(this, allContacts);
+            recyclerView.setAdapter(adapter);
+        } else {
+            recyclerView.setVisibility(View.GONE);
+            list_contacts_empty.setVisibility(View.VISIBLE);
         }
     }
 
-    @Override
-    public void showContainerTelephone(Boolean visibility) {
-        if (holder.person_telephone != null){
-            Toast.makeText(this, "телефон существует, ура!", Toast.LENGTH_SHORT).show();
-        }
+    private void addTaskDialog() {
+        LayoutInflater inflater = LayoutInflater.from(this);
+        View subView = inflater.inflate(R.layout.item_edit_contacts, null);
+
+        final EditText nameField = subView.findViewById(R.id.create_contact_name);
+        final EditText birthdayField = subView.findViewById(R.id.create_contact_birthday);
+        final EditText telephoneField = subView.findViewById(R.id.create_contact_telephone);
+        final EditText emailField = subView.findViewById(R.id.create_contact_email);
+        final EditText chukpokField = subView.findViewById(R.id.create_contact_chukpok);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.add_new_person);
+        builder.setView(subView);
+        builder.create();
+
+        builder.setPositiveButton(R.string.add_person, (dialog, which) -> {
+            final String name = nameField.getText().toString();
+            final String birthday = birthdayField.getText().toString();
+            final String telephone = telephoneField.getText().toString();
+            final String email = emailField.getText().toString();
+            final String chukpok = chukpokField.getText().toString();
+
+            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(chukpok)){
+                Toast.makeText(ContactsView.this, R.string.something_wrong, Toast.LENGTH_SHORT).show();
+            } else {
+                Contacts newContacts = new Contacts(name, birthday, telephone, email, chukpok);
+                database.addContacts(newContacts);
+
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
+        builder.setNegativeButton(R.string.cancel, (dialog, which) ->
+                Toast.makeText(ContactsView.this, R.string.task_cancelled, Toast.LENGTH_SHORT).show());
+        builder.show();
     }
 
     @Override
-    public void showContainerEmail(Boolean visibility) {
-        if (holder.person_email != null){
-            Toast.makeText(this, "email существует, ура!", Toast.LENGTH_SHORT).show();
+    protected void onDestroy() {
+        super.onDestroy();
+        if(database != null){
+            database.close();
         }
     }
+
 }
