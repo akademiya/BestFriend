@@ -42,6 +42,7 @@
     <string name="books">Книги</string>
     <string name="calendar">Календарь</string>
     <string name="kido_list">Список Кидо</string>
+    <string name="korean">Корейский</string>
     <string name="birthday">Дни рождения</string>
     <string name="tp_video">Видео</string>
     <string name="contact">Контакты</string>
@@ -49,4 +50,8 @@
     <string name="communicate">Связаться</string>
     <string name="share">Поделиться</string>
     <string name="send">Отправить сообщение</string>
+
+    // korean
+    <string name="numbers">Корейские числительные</string>
+    <string name="irregular_verb">Неправильный глагол</string>
 </resources>

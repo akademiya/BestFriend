@@ -17,6 +17,7 @@
     // List item, view
     <dimen name="item_kido_container">68dp</dimen>
     <dimen name="item_books_container">68dp</dimen>
+    <dimen name="item_korean_container">68dp</dimen>
     <dimen name="item_contact_container">150dp</dimen>
     <dimen name="img_people_parameter">40dp</dimen>
     <dimen name="edge_margins">16dp</dimen>

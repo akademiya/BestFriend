@@ -29,6 +29,10 @@
             android:icon="@drawable/ic_people"
             android:title="@string/kido_list" />
         <item
+            android:id="@+id/nav_korean"
+            android:icon="@drawable/k_u_flag"
+            android:title="@string/korean" />
+        <item
             android:id="@+id/nav_video"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/tp_video" />

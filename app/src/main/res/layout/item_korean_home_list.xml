@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_rule"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/item_korean_container"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/rule"
+        style="@style/TextStyle_Body2_Primary_Dark"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/parent_margin"
+        tools:text="un/nun (rule)" />
+
+    <View
+        style="@style/AppTheme.HorizontalViewDivider"
+        android:layout_alignParentBottom="true" />
+</RelativeLayout>

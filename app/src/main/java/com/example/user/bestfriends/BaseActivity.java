@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
@@ -12,12 +14,16 @@ import android.widget.FrameLayout;
 import com.example.user.bestfriends.books.BooksView;
 import com.example.user.bestfriends.calendar.HCalendarView;
 import com.example.user.bestfriends.contacts.ContactsView;
+import com.example.user.bestfriends.korean.TabFragment;
 import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.mense.MenseView;
 import com.example.user.bestfriends.settings.SettingsView;
 import com.example.user.bestfriends.video.VideoView;
 
 public class BaseActivity extends AppCompatActivity {
+
+    FragmentManager FM;
+    FragmentTransaction FT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
@@ -54,6 +60,17 @@ public class BaseActivity extends AppCompatActivity {
 
                 case R.id.nav_kido:
                     startActivity(PersonView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
+                case R.id.nav_korean:
+                    FM = getSupportFragmentManager();
+                    FT = FM.beginTransaction();
+                    FT.replace(R.id.activity_content, new TabFragment()).commit();
+
+                    FragmentTransaction fragmentTransaction = FM.beginTransaction();
+                    fragmentTransaction.replace(R.id.activity_content, new TabFragment()).commit();
+
                     fullView.closeDrawers();
                     return true;
 
