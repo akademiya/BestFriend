@@ -12,10 +12,13 @@ import android.view.ViewGroup;
 
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.korean.adapter.KoreanViewAdapter;
+import com.example.user.bestfriends.korean.adapter.KoreanViewHolder;
 
 import java.util.ArrayList;
 
 public class KoreanGrammarFragment extends Fragment {
+
+    private KoreanViewHolder.RecyclerViewClickListener listener;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
@@ -26,15 +29,16 @@ public class KoreanGrammarFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         final ArrayList<RecyclerViewModel> mItem = new ArrayList<>();
-        mItem.add(new RecyclerViewModel("- 은/는 (topic marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
-        mItem.add(new RecyclerViewModel("- 을/를 (object marker)"));
+        mItem.add(new RecyclerViewModel(R.string.aso));
+        mItem.add(new RecyclerViewModel(R.string.eso));
+        mItem.add(new RecyclerViewModel(R.string.numbers));
+        mItem.add(new RecyclerViewModel(R.string.spacing));
+        mItem.add(new RecyclerViewModel(R.string.irregular_t));
+        mItem.add(new RecyclerViewModel(R.string.irregular_r));
+        mItem.add(new RecyclerViewModel(R.string.irregular_p));
+        mItem.add(new RecyclerViewModel(R.string.irregular_s));
+        mItem.add(new RecyclerViewModel(R.string.irregular_ry));
+        mItem.add(new RecyclerViewModel(R.string.irregular_yi));
 
         final KoreanViewAdapter itemsAdapter = new KoreanViewAdapter(KoreanGrammarFragment.this.getActivity(), mItem, null);
         final RecyclerView home_list_recycler = view.findViewById(R.id.rv_list_fragment);

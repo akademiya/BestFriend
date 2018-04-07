@@ -5,7 +5,10 @@
     android:id="@+id/container_rule"
     android:layout_width="match_parent"
     android:layout_height="@dimen/item_korean_container"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackground">
 
     <TextView
         android:id="@+id/rule"

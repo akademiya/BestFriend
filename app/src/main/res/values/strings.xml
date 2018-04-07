@@ -52,6 +52,81 @@
     <string name="send">Отправить сообщение</string>
 
     // korean
-    <string name="numbers">Корейские числительные</string>
-    <string name="irregular_verb">Неправильный глагол</string>
+            // home
+    <string name="enter_in_korean"><b>Введение в корейский</b></string>
+    <string name="korean_topic"><b><font color="#FFA500">- 은/는</font></b> (topic marker)</string>
+    <string name="korean_object"><b><font color="#FFA500">- 을/를</font></b> (object marker)</string>
+    <string name="korean_subject"><b><font color="#FFA500">- 을/를</font></b> (subject marker)</string>
+    <string name="korean_this"><b><font color="#FFA500">- 을/를</font></b> (this/that/that)</string>
+
+    <string name="tenses"><b>Времена</b></string>
+    <string name="korean_future"><b><font color="#FFA500">- 은/는</font></b> (future tens)</string>
+    <string name="korean_progressive"><b><font color="#FFA500">- 을/를</font></b> (progressive tens)</string>
+    <string name="korean_present"><b><font color="#FFA500">- 을/를</font></b> (present tens)</string>
+    <string name="korean_past"><b><font color="#FFA500">- 을/를</font></b> (past tens)</string>
+
+    <string name="negative_expressions"><b>Негативный оттенок выражения</b></string>
+    <string name="korean_not_be"><b><font color="#FFA500">- 은/는</font></b> (to not be)</string>
+    <string name="korean_cannot"><b><font color="#FFA500">- 을/를</font></b> (cannot)</string>
+    <string name="korean_not_verb"><b><font color="#FFA500">- 을/를</font></b> (not)</string>
+    <string name="korean_not_noun"><b><font color="#FFA500">- 을/를</font></b> (not)</string>
+
+    <string name="particles"><b>Практические</b></string>
+    <string name="also"><b><font color="#FFA500">- 은/는</font></b> (also/to/even)</string>
+    <string name="unusually"><b><font color="#FFA500">- 은/는</font></b> (unusually)</string>
+    <string name="every"><b><font color="#FFA500">- 은/는</font></b> (every/each)</string>
+    <string name="much"><b><font color="#FFA500">- 은/는</font></b> (as much as)</string>
+    <string name="only"><b><font color="#FFA500">- 은/는</font></b> (only/nothing but)</string>
+    <string name="more"><b><font color="#FFA500">- 은/는</font></b> (more..than/~er tha)</string>
+    <string name="time"><b><font color="#FFA500">- 은/는</font></b> (time/place particle)</string>
+    <string name="to"><b><font color="#FFA500">- 은/는</font></b> (to)</string>
+    <string name="in"><b><font color="#FFA500">- 은/는</font></b> (in/at/from)</string>
+    <string name="of"><b><font color="#FFA500">- 은/는</font></b> (of)</string>
+    <string name="like"><b><font color="#FFA500">- 은/는</font></b> (like/as..as)</string>
+
+    <string name="listing"><b>Перечень и контраст</b></string>
+    <string name="but_than"><b><font color="#FFA500">- 은/는</font></b> (but_than..)</string>
+    <string name="although"><b><font color="#FFA500">- 은/는</font></b> (although, even though)</string>
+    <string name="not_only"><b><font color="#FFA500">- 은/는</font></b> (not only ~ but also)</string>
+    <string name="or"><b><font color="#FFA500">- 은/는</font></b> (or)</string>
+    <string name="and"><b><font color="#FFA500">- 은/는</font></b> (and/and then)</string>
+    <string name="but"><b><font color="#FFA500">- 은/는</font></b> (but)</string>
+
+    <string name="time_expressions"><b>Временные выражения</b></string>
+    <string name="after_action"><b><font color="#FFA500">- 은/는</font></b> (after some action)</string>
+    <string name="during"><b><font color="#FFA500">- 은/는</font></b> (during/when)</string>
+    <string name="upon_finishing"><b><font color="#FFA500">- 은/는</font></b> (upon finishing/and then)</string>
+    <string name="before"><b><font color="#FFA500">- 은/는</font></b> (before some action)</string>
+    <string name="do_sth"><b><font color="#FFA500">- 은/는</font></b> (do sth and then do sth)</string>
+    <string name="kor_while"><b><font color="#FFA500">- 은/는</font></b> (while)</string>
+    <string name="soon"><b><font color="#FFA500">- 은/는</font></b> (as soon as/right after)</string>
+
+    <string name="ability"><b>Способность и возможность</b></string>
+    <string name="cant_be"><b><font color="#FFA500">- 은/는</font></b> (it can`t be..)</string>
+    <string name="cant_do"><b><font color="#FFA500">- 은/는</font></b> (can`t do sth)</string>
+    <string name="can_do"><b><font color="#FFA500">- 은/는</font></b> (can do sth)</string>
+
+    <string name="demands"><b>Требования, Обязательства, Разрешения, Запрет</b></string>
+    <string name="allowed"><b><font color="#FFA500">- 은/는</font></b> (allowed to, is it OK if..)</string>
+    <string name="must"><b><font color="#FFA500">- 은/는</font></b> (must/have to)</string>
+    <string name="not_allowed"><b><font color="#FFA500">- 은/는</font></b> (be not allowed)</string>
+    <string name="please"><b><font color="#FFA500">- 은/는</font></b> (please don`t)</string>
+
+    <string name="hope"><b>Выражения надежды</b></string>
+    <string name="want"><b><font color="#FFA500">- 은/는</font></b> (want to)</string>
+    <string name="wish"><b><font color="#FFA500">- 은/는</font></b> (wish/hope/want)</string>
+
+
+
+    // grammar
+    <string name="aso"><b>-아/어서 или -으니까</b></string>
+    <string name="eso"><b>-에 или -에서</b></string>
+    <string name="numbers"><b>Корейские числительные</b></string>
+    <string name="spacing"><b>Интервал в корейском</b></string>
+    <string name="irregular_t"><b>Неправильный глагол </b></string>
+    <string name="irregular_r"><b>Неправильный глагол </b></string>
+    <string name="irregular_p"><b>Неправильный глагол </b></string>
+    <string name="irregular_s"><b>Неправильный глагол ㅅ</b></string>
+    <string name="irregular_ry"><b>Неправильный глагол </b></string>
+    <string name="irregular_yi"><b>Неправильный глагол 으</b></string>
 </resources>
