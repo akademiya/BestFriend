@@ -23,8 +23,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:padding="@dimen/margin8"
                 android:layout_marginStart="@dimen/menu_icon_margin"
+                android:padding="@dimen/margin8"
                 android:src="@drawable/ic_menu_white"
                 android:tint="@color/white" />
 
@@ -37,30 +37,33 @@
     </android.support.v7.widget.Toolbar>
 
     <Switch
-        android:id="@+id/notification_new_video"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/switch_height"
-        android:layout_marginTop="8dp"
-        android:paddingEnd="@dimen/parent_margin"
-        android:paddingStart="@dimen/parent_margin"
-        android:text="@string/notification_video" />
+        android:id="@+id/hide_list_kido"
+        style="@style/SwitchSettings"
+        android:text="@string/hide_list_kido" />
+
+    <Switch
+        android:id="@+id/hide_korean"
+        style="@style/SwitchSettings"
+        android:text="@string/hide_korean" />
+
+    <Switch
+        android:id="@+id/hide_video"
+        style="@style/SwitchSettings"
+        android:text="@string/hide_video" />
+
+    <Switch
+        android:id="@+id/hide_contacts"
+        style="@style/SwitchSettings"
+        android:text="@string/hide_contacts" />
 
     <Switch
         android:id="@+id/notification_birthday"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/switch_height"
-        android:layout_marginTop="8dp"
-        android:paddingEnd="@dimen/parent_margin"
-        android:paddingStart="@dimen/parent_margin"
+        style="@style/SwitchSettings"
         android:text="@string/notification_birthday" />
 
     <Switch
         android:id="@+id/notification_calendar"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/switch_height"
-        android:layout_marginTop="8dp"
-        android:paddingEnd="@dimen/parent_margin"
-        android:paddingStart="@dimen/parent_margin"
+        style="@style/SwitchSettings"
         android:text="@string/notification_calendar" />
 
     <TextView
@@ -70,5 +73,10 @@
         android:layout_marginStart="@dimen/parent_margin"
         android:text="@string/description_notif_calendar"
         android:textSize="10sp" />
+
+    <Button
+        android:id="@+id/save_settings"
+        style="@style/ButtonSettings"
+        android:text="@string/save_settings" />
 
 </LinearLayout>

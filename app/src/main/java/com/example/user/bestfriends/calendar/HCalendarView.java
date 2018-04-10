@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.TextView;
 
 import com.example.user.bestfriends.BaseActivity;
@@ -15,8 +16,6 @@ import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.settings.SettingsView;
 
 public class HCalendarView extends BaseActivity {
-
-    private String selectedDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +25,6 @@ public class HCalendarView extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        showStringSelectedDate();
-
-    }
-
-    private void showStringSelectedDate() {
-        TextView text_calendar_day = findViewById(R.id.text_calendar_day);
-        CalendarView calendarView = findViewById(R.id.calendar_view);
-        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
-            selectedDate = new StringBuilder()
-                    .append("Сегодня ").append(dayOfMonth).append(" число, ")
-                    .append(month + 1).append(" месяц, ")
-                    .append(year).append(" год").toString();
-            text_calendar_day.setText(selectedDate);
-
-        });
     }
 
     // TODO: app bar menu переход в activity по клику на item

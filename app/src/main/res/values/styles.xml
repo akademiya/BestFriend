@@ -94,4 +94,25 @@
         <item name="android:layout_marginTop">2dp</item>
     </style>
 
+    // Button Settings
+    <style name="ButtonSettings" parent="Widget.AppCompat.Button.Borderless">
+        <item name="android:background">@drawable/button_background_green</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">40dp</item>
+    </style>
+
+    // Switch Settings
+    <style name="SwitchSettings">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/switch_height</item>
+        <item name="android:layout_marginStart">@dimen/parent_margin</item>
+        <item name="android:layout_marginEnd">@dimen/parent_margin</item>
+        <item name="android:layout_marginTop">@dimen/margin8</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+
 </resources>

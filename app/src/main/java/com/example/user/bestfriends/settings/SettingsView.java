@@ -8,22 +8,34 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Switch;
+import android.widget.Toast;
 
 import com.example.user.bestfriends.BaseActivity;
 import com.example.user.bestfriends.R;
 
 public class SettingsView extends BaseActivity {
-    private Switch notification_new_video;
-    private Switch notification_birthday;
-    private Switch notification_calendar;
-    private SharedPreferences mSet;
-    public static final String NAME_PREFERENCES = "mysetting";
-    public static final String BOOL_CHECKBOX = "checkboxset";
+    private Switch hide_list_kido;
+    private Switch hide_korean;
+    private Switch hide_video;
+    private Switch hide_contacts;
+    private Switch onBirthday;
+    private Switch onCalendar;
+    private Button save_settings;
+    private Menu video;
+
+    SharedPreferences state;
+
+    private Boolean kido = true;
+
     DrawerLayout mDrawerLayout;
     ImageView button_menu;
+
+    public static Intent getStartIntent(Context context) {
+        return new Intent(context, SettingsView.class);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +46,17 @@ public class SettingsView extends BaseActivity {
         setSupportActionBar(toolbar);
 
         init();
+        loadChange();
 
-        if (mSet.contains(BOOL_CHECKBOX)) {
-            notification_new_video.setChecked(mSet.getBoolean(BOOL_CHECKBOX, false));
-        }
-        if (mSet.contains(BOOL_CHECKBOX)) {
-            notification_birthday.setChecked(mSet.getBoolean(BOOL_CHECKBOX, false));
-        }
-        if (mSet.contains(BOOL_CHECKBOX)) {
-            notification_calendar.setChecked(mSet.getBoolean(BOOL_CHECKBOX, false));
-        }
+        save_settings.setOnClickListener(v -> {
+            switch (v.getId()) {
+                case R.id.save_settings:
+                    saveChecked();
+                    break;
+                default:
+                    break;
+            }
+        });
 
         button_menu.setOnClickListener(v -> {
             final DrawerLayout fullView = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_main, null);
@@ -52,40 +65,64 @@ public class SettingsView extends BaseActivity {
 
     }
 
-//    @Override
+    private void saveChecked() {
+        state = getPreferences(MODE_PRIVATE);
+        SharedPreferences.Editor editor = state.edit();
+        editor.putBoolean("hide_kido", hide_list_kido.isChecked()); // TODO: реализовать правильное значение Boolean
+        editor.putBoolean("hide_korean", hide_korean.isChecked());
+        editor.putBoolean("hide_video", hide_video.isChecked());
+        editor.putBoolean("hide_contacts", hide_contacts.isChecked());
+        editor.putBoolean("onBirthday", onBirthday.isChecked());
+        editor.putBoolean("onCalendar", onCalendar.isChecked());
+        editor.commit();
+        Toast.makeText(this, R.string.data_saved, Toast.LENGTH_SHORT).show();
+    }
+
+    private void loadChange() {
+        state = getPreferences(MODE_PRIVATE);
+        Boolean savedKido = state.getBoolean("hide_kido", hide_list_kido.isChecked()); // TODO: реализовать правильное значение Boolean
+        hide_list_kido.setChecked(savedKido);
+
+        Boolean saveKorean = state.getBoolean("hide_korean", hide_korean.isChecked());
+        hide_korean.setChecked(saveKorean);
+
+        Boolean saveVideo = state.getBoolean("hide_video", hide_video.isChecked());
+        hide_video.setChecked(saveVideo);
+
+        Boolean saveContacts = state.getBoolean("hide_contacts", hide_contacts.isChecked());
+        hide_contacts.setChecked(saveContacts);
+
+        Boolean saveBirthday = state.getBoolean("onBirthday", onBirthday.isChecked());
+        onBirthday.setChecked(saveBirthday);
+
+        Boolean saveCalendar = state.getBoolean("onCalendar", onCalendar.isChecked());
+        onCalendar.setChecked(saveCalendar);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        saveChecked();
+    }
+
+    //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {
 //        getMenuInflater().inflate(R.menu.main, menu);
 //
 //        return true;
 //    }
 
-    public static Intent getStartIntent(Context context) {
-        return new Intent(context, SettingsView.class);
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mSet = getSharedPreferences(NAME_PREFERENCES, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = mSet.edit();
-        editor.putBoolean(BOOL_CHECKBOX, notification_new_video.isChecked());
-        editor.putBoolean(BOOL_CHECKBOX, notification_birthday.isChecked());
-        editor.putBoolean(BOOL_CHECKBOX, notification_calendar.isChecked()); //Чекбокс сохранение значения при выходе из приложения-/-активности
-        editor.apply();
-    }
-
-    @Override
-    public void onAttachedToWindow() {
-
-    }
-
     private void init() {
-        mSet = getSharedPreferences(NAME_PREFERENCES, Context.MODE_PRIVATE);
-
-        notification_new_video = findViewById(R.id.notification_new_video);
-        notification_birthday = findViewById(R.id.notification_birthday);
-        notification_calendar = findViewById(R.id.notification_calendar);
+        hide_list_kido = findViewById(R.id.hide_list_kido);
+        hide_korean = findViewById(R.id.hide_korean);
+        hide_video = findViewById(R.id.hide_video);
+        hide_contacts = findViewById(R.id.hide_contacts);
+        onBirthday = findViewById(R.id.notification_birthday);
+        onCalendar = findViewById(R.id.notification_calendar);
+        save_settings = findViewById(R.id.save_settings);
         button_menu = findViewById(R.id.button_menu);
+
+        video = findViewById(R.id.nav_video);
     }
 
     //        switch_push.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) -> {
