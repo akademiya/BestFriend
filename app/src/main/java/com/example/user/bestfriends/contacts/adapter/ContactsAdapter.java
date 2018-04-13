@@ -17,8 +17,8 @@ import android.widget.Toast;
 
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.contacts.Contacts;
+import com.example.user.bestfriends.contacts.database.SqliteDatabase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -26,12 +26,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
 
     private Context context;
     private List<Contacts> listContacts;
-    private com.example.user.bestfriends.contacts.database.SqliteDatabase database;
+    private SqliteDatabase database;
 
     public ContactsAdapter(Context context, List<Contacts> listContacts) {
         this.context = context;
         this.listContacts = listContacts;
-        database = new com.example.user.bestfriends.contacts.database.SqliteDatabase(context);
+        database = new SqliteDatabase(context);
     }
 
     @NonNull
@@ -47,12 +47,6 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
 
         holder.person_photo.setImageResource(R.drawable.ic_person);
         holder.person_name.setText(singleContacts.getPersonName());
-
-        if (!singleContacts.getPersonBirthday().isEmpty()) {
-            holder.person_birthday.setText(singleContacts.getPersonBirthday());
-        } else {
-            holder.person_birthday.setVisibility(View.GONE);
-        }
 
         if (!singleContacts.getPersonTelephone().isEmpty()) {
             holder.person_telephone.setText(singleContacts.getPersonTelephone());
@@ -78,16 +72,9 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
                 Toast.makeText(context, R.string.error_email, Toast.LENGTH_SHORT).show();
             }
             holder.person_email.setText(singleContacts.getPersonEmail());
-            holder.send_email.setOnClickListener(v -> {
-                String toEmail = singleContacts.getPersonEmail();
-                context.startActivity(new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + toEmail)));
-            });
         } else {
             holder.person_email.setVisibility(View.GONE);
-            holder.send_email.setVisibility(View.GONE);
         }
-
-        holder.chukpok.setText(singleContacts.getPersonChukpok());
 
         holder.listContacts.setOnLongClickListener(v -> {
             holder.listReview.setVisibility(View.VISIBLE);
@@ -114,17 +101,13 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
         View subView = inflater.inflate(R.layout.item_edit_contacts, null);
 
         final EditText nameField = subView.findViewById(R.id.create_contact_name);
-        final EditText birthdayField = subView.findViewById(R.id.create_contact_birthday);
         final EditText telephoneField = subView.findViewById(R.id.create_contact_telephone);
         final EditText emailField = subView.findViewById(R.id.create_contact_email);
-        final EditText chukpokField = subView.findViewById(R.id.create_contact_chukpok);
 
         if (contacts != null) {
             nameField.setText(contacts.getPersonName());
-            birthdayField.setText(contacts.getPersonBirthday());
             telephoneField.setText(contacts.getPersonTelephone());
             emailField.setText(contacts.getPersonEmail());
-            chukpokField.setText(contacts.getPersonChukpok());
         }
 
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -134,16 +117,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsHolder> {
 
         builder.setPositiveButton(R.string.edit_person, (dialog, which) -> {
             final String name = nameField.getText().toString();
-            final String birthday = birthdayField.getText().toString();
             final String telephone = telephoneField.getText().toString();
             final String email = emailField.getText().toString();
-            final String chukpok = chukpokField.getText().toString();
 
-            if (TextUtils.isEmpty(name) || TextUtils.isEmpty(chukpok)) {
+            if (TextUtils.isEmpty(name)) {
                 Toast.makeText(context, R.string.something_wrong, Toast.LENGTH_SHORT).show();
             } else {
                 assert contacts != null;
-                database.updateContacts(new Contacts(contacts.getContactsID(), name, birthday, telephone, email, chukpok));
+                database.updateContacts(new Contacts(contacts.getContactsID(), name, telephone, email));
                 ((Activity) context).finish();
                 context.startActivity(((Activity) context).getIntent());
             }

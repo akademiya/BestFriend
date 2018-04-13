@@ -4,22 +4,26 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_main"
             android:icon="@drawable/ic_home_page_black"
             android:title="@string/home_page" />
-
+        <item
+            android:id="@+id/nav_tp_photo"
+            android:icon="@drawable/ic_mense"
+            android:title="@string/tp_photo" />
         <item
             android:id="@+id/nav_mense"
             android:icon="@drawable/ic_mense"
             android:title="@string/mense" />
-
         <item
             android:id="@+id/nav_books"
             android:icon="@drawable/ic_library_books"
             android:title="@string/books" />
-
+        <item
+            android:id="@+id/nav_tp_kido"
+            android:icon="@drawable/ic_library_books"
+            android:title="@string/tp_kido" />
         <item
             android:id="@+id/nav_calendar"
             android:icon="@drawable/ic_calendar"
@@ -33,6 +37,10 @@
             android:icon="@drawable/k_u_flag"
             android:title="@string/korean" />
         <item
+            android:id="@+id/nav_exercises"
+            android:icon="@drawable/ic_exercises"
+            android:title="@string/exercises" />
+        <item
             android:id="@+id/nav_video"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/tp_video" />
@@ -40,6 +48,10 @@
             android:id="@+id/nav_contact"
             android:icon="@drawable/ic_contact"
             android:title="@string/contact" />
+        <item
+            android:id="@+id/nav_birthday"
+            android:icon="@drawable/ic_birthday"
+            android:title="@string/birthday" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"

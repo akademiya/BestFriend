@@ -20,10 +20,8 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     private static final String KEY_ID = "_id";
     //    private static final String KEY_PHOTO = "photo";
     private static final String KEY_NAME = "personname";
-    private static final String KEY_BIRTHDAY = "birthday";
     private static final String KEY_TELEPHONE = "telephone";
     private static final String KEY_EMAIL = "email";
-    private static final String KEY_CHUKPOK = "chukpok";
 
     public SqliteDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -36,10 +34,8 @@ public class SqliteDatabase extends SQLiteOpenHelper {
                 + KEY_ID + " INTEGER PRIMARY KEY,"
 //                + COLUMN_PERSONPHOTO + " BLOB,"
                 + KEY_NAME + " TEXT,"
-                + KEY_BIRTHDAY + " TEXT,"
                 + KEY_TELEPHONE + " TEXT,"
-                + KEY_EMAIL + " TEXT,"
-                + KEY_CHUKPOK + " TEXT" + ")";
+                + KEY_EMAIL + " TEXT" + ")";
         db.execSQL(CREATE_PERSON_TABLE);
     }
 
@@ -58,12 +54,10 @@ public class SqliteDatabase extends SQLiteOpenHelper {
             do {
                 int id = Integer.parseInt(cursor.getString(0));
                 String name = cursor.getString(1);
-                String birthday = cursor.getString(2);
-                String telephone = cursor.getString(3);
-                String email = cursor.getString(4);
-                String chukpok = cursor.getString(5);
+                String telephone = cursor.getString(2);
+                String email = cursor.getString(3);
 //                byte[] photo = cursor.getBlob(6);
-                storeContacts.add(new Contacts(id, name, birthday, telephone, email, chukpok));
+                storeContacts.add(new Contacts(id, name, telephone, email));
 
             } while (cursor.moveToNext());
         }
@@ -74,10 +68,8 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     public void addContacts(Contacts contacts) {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, contacts.getPersonName());
-        values.put(KEY_BIRTHDAY, contacts.getPersonBirthday());
         values.put(KEY_TELEPHONE, contacts.getPersonTelephone());
         values.put(KEY_EMAIL, contacts.getPersonEmail());
-        values.put(KEY_CHUKPOK, contacts.getPersonChukpok());
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_CONTACTS, null, values);
     }
@@ -85,10 +77,8 @@ public class SqliteDatabase extends SQLiteOpenHelper {
     public void updateContacts(Contacts contacts) {
         ContentValues values = new ContentValues();
         values.put(KEY_NAME, contacts.getPersonName());
-        values.put(KEY_BIRTHDAY, contacts.getPersonBirthday());
         values.put(KEY_TELEPHONE, contacts.getPersonTelephone());
         values.put(KEY_EMAIL, contacts.getPersonEmail());
-        values.put(KEY_CHUKPOK, contacts.getPersonChukpok());
         SQLiteDatabase db = this.getWritableDatabase();
         db.update(TABLE_CONTACTS, values, KEY_ID + "	= ?", new String[] { String.valueOf(contacts.getContactsID()) });
     }

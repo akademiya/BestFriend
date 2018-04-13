@@ -21,18 +21,6 @@
     <View style="@style/AppTheme.HorizontalViewDivider" />
 
     <EditText
-        android:id="@+id/create_contact_birthday"
-        style="@style/TextStyle_Body2_Primary_Dark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:hint="2 февраля"
-        android:inputType="text"
-        android:maxLines="1" />
-
-    <View style="@style/AppTheme.HorizontalViewDivider" />
-
-    <EditText
         android:id="@+id/create_contact_telephone"
         style="@style/TextStyle_Body2_Primary_Dark"
         android:layout_width="match_parent"
@@ -55,18 +43,6 @@
         android:ellipsize="end"
         android:hint="bender@gmail.com"
         android:inputType="textEmailAddress"
-        android:maxLines="1" />
-
-    <View style="@style/AppTheme.HorizontalViewDivider" />
-
-    <EditText
-        android:id="@+id/create_contact_chukpok"
-        style="@style/TextStyle_Body2_Primary_Dark"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:hint="family status"
-        android:inputType="text"
         android:maxLines="1" />
 
     <View style="@style/AppTheme.HorizontalViewDivider" />

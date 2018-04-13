@@ -11,13 +11,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 
+import com.example.user.bestfriends.birthday.BirthdayView;
 import com.example.user.bestfriends.books.BooksView;
 import com.example.user.bestfriends.calendar.HCalendarView;
 import com.example.user.bestfriends.contacts.ContactsView;
+import com.example.user.bestfriends.exercises.ExercisesView;
 import com.example.user.bestfriends.korean.TabFragment;
 import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.mense.MenseView;
 import com.example.user.bestfriends.settings.SettingsView;
+import com.example.user.bestfriends.tp_kido.TPkidoView;
+import com.example.user.bestfriends.tp_photo.TPphotoView;
 import com.example.user.bestfriends.video.VideoView;
 
 public class BaseActivity extends AppCompatActivity {
@@ -43,6 +47,11 @@ public class BaseActivity extends AppCompatActivity {
                     fullView.closeDrawers();
                     return true;
 
+                case R.id.nav_tp_photo:
+                    startActivity(TPphotoView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
                 case R.id.nav_mense:
                     startActivity(MenseView.getStartIntent(this));
                     fullView.closeDrawers();
@@ -50,6 +59,11 @@ public class BaseActivity extends AppCompatActivity {
 
                 case R.id.nav_books:
                     startActivity(BooksView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
+                case R.id.nav_tp_kido:
+                    startActivity(TPkidoView.getStartIntent(this));
                     fullView.closeDrawers();
                     return true;
 
@@ -74,6 +88,11 @@ public class BaseActivity extends AppCompatActivity {
                     fullView.closeDrawers();
                     return true;
 
+                case R.id.nav_exercises:
+                    startActivity(ExercisesView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
                 case R.id.nav_video:
                     startActivity(VideoView.getStartIntent(this));
                     fullView.closeDrawers();
@@ -81,6 +100,11 @@ public class BaseActivity extends AppCompatActivity {
 
                 case R.id.nav_contact:
                     startActivity(ContactsView.getStartIntent(this));
+                    fullView.closeDrawers();
+                    return true;
+
+                case R.id.nav_birthday:
+                    startActivity(BirthdayView.getStartIntent(this));
                     fullView.closeDrawers();
                     return true;
 
@@ -95,7 +119,6 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.nav_share:
-
                     Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                     sharingIntent.setType("text/plain");
                     String shareBody = "Here is the share content body";

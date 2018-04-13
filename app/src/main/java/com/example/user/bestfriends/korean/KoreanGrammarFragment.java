@@ -10,15 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.user.bestfriends.BindView;
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.korean.adapter.KoreanViewAdapter;
 import com.example.user.bestfriends.korean.adapter.KoreanViewHolder;
 
 import java.util.ArrayList;
 
+import butterknife.ButterKnife;
+
 public class KoreanGrammarFragment extends Fragment {
 
-    private KoreanViewHolder.RecyclerViewClickListener listener;
+//    private KoreanViewHolder.RecyclerViewClickListener listener;
+
+    @BindView(R.id.rv_list_fragment) RecyclerView recyclerView;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
@@ -27,6 +32,7 @@ public class KoreanGrammarFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ButterKnife.bind(this, view);
 
         final ArrayList<RecyclerViewModel> mItem = new ArrayList<>();
         mItem.add(new RecyclerViewModel(R.string.aso));

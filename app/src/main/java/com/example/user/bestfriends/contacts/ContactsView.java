@@ -107,10 +107,8 @@ public class ContactsView extends BaseActivity {
         View subView = inflater.inflate(R.layout.item_edit_contacts, null);
 
         final EditText nameField = subView.findViewById(R.id.create_contact_name);
-        final EditText birthdayField = subView.findViewById(R.id.create_contact_birthday);
         final EditText telephoneField = subView.findViewById(R.id.create_contact_telephone);
         final EditText emailField = subView.findViewById(R.id.create_contact_email);
-        final EditText chukpokField = subView.findViewById(R.id.create_contact_chukpok);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.add_new_person);
@@ -119,15 +117,13 @@ public class ContactsView extends BaseActivity {
 
         builder.setPositiveButton(R.string.add_person, (dialog, which) -> {
             final String name = nameField.getText().toString();
-            final String birthday = birthdayField.getText().toString();
             final String telephone = telephoneField.getText().toString();
             final String email = emailField.getText().toString();
-            final String chukpok = chukpokField.getText().toString();
 
-            if(TextUtils.isEmpty(name) || TextUtils.isEmpty(chukpok)){
+            if(TextUtils.isEmpty(name)){
                 Toast.makeText(ContactsView.this, R.string.something_wrong, Toast.LENGTH_SHORT).show();
             } else {
-                Contacts newContacts = new Contacts(name, birthday, telephone, email, chukpok);
+                Contacts newContacts = new Contacts(name, telephone, email);
                 database.addContacts(newContacts);
 
                 finish();

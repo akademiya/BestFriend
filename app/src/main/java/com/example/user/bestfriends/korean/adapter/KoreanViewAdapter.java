@@ -24,6 +24,10 @@ public class KoreanViewAdapter extends RecyclerView.Adapter<KoreanViewHolder> {
         this.mItemListener = mItemListener;
     }
 
+    public void setOnItemClickListener(KoreanViewHolder.ItemListener mItemListener) {
+        this.mItemListener = mItemListener;
+    }
+
     @NonNull
     @Override
     public KoreanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -31,7 +35,7 @@ public class KoreanViewAdapter extends RecyclerView.Adapter<KoreanViewHolder> {
                 .from(parent.getContext())
                 .inflate(R.layout.item_korean_home_list, parent, false);
         context = parent.getContext();
-        return new KoreanViewHolder(v);
+        return new KoreanViewHolder(context, v);
     }
 
     @Override

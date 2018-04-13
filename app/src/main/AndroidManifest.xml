@@ -33,6 +33,10 @@
             android:name=".list_kido.PersonView"
             android:configChanges="orientation|screenSize" />
         <activity android:name=".video.VideoView" />
+        <activity android:name=".tp_kido.TPkidoView"/>
+        <activity android:name=".tp_photo.TPphotoView"/>
+        <activity android:name=".exercises.ExercisesView"/>
+        <activity android:name=".birthday.BirthdayView"/>
         <activity android:name=".contacts.ContactsView" />
         <activity android:name=".settings.SettingsView" />
         <activity android:name=".MainView" />
