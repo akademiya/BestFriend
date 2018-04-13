@@ -4,15 +4,14 @@ package com.example.user.bestfriends.video;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.webkit.WebView;
+import android.widget.ImageView;
 
 import com.example.user.bestfriends.BaseActivity;
 import com.example.user.bestfriends.R;
@@ -20,20 +19,30 @@ import com.example.user.bestfriends.settings.SettingsView;
 
 public class VideoView extends BaseActivity {
 
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
+
     @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_video);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar_button_menu();
 
         WebView webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
         String data = "<iframe src=\"http://player.vimeo.com/video/262601737?autoplay=true\" width=\"400\" height=\"250\" frameborder=\"0\" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>";
         webView.loadData(data, "text/html", "UTF-8");
+    }
 
+    private void toolbar_button_menu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        button_menu = findViewById(R.id.button_menu);
+        button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
     }
 
     // TODO: app bar menu переход в activity по клику на item

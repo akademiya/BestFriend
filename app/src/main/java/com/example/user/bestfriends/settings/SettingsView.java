@@ -5,8 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,14 +26,12 @@ public class SettingsView extends BaseActivity {
     private Switch onBirthday;
     private Switch onCalendar;
     private Button save_settings;
-    private Menu video;
 
-    SharedPreferences state;
+    private SharedPreferences state;
+    NavigationView navigationView;
 
-    private Boolean kido = true;
-
-    DrawerLayout mDrawerLayout;
-    ImageView button_menu;
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, SettingsView.class);
@@ -42,12 +42,21 @@ public class SettingsView extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_settings);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         init();
+        toolbar_button_menu();
         loadChange();
+        button_save_settings();
 
+        Menu nav_Menu = navigationView.getMenu();
+
+//        if (hide_list_kido.isChecked()) {
+//            nav_Menu.findItem(R.id.hide_list_kido).setVisible(false);
+//        }
+
+
+    }
+
+    private void button_save_settings() {
         save_settings.setOnClickListener(v -> {
             switch (v.getId()) {
                 case R.id.save_settings:
@@ -57,18 +66,20 @@ public class SettingsView extends BaseActivity {
                     break;
             }
         });
+    }
 
-        button_menu.setOnClickListener(v -> {
-            final DrawerLayout fullView = (DrawerLayout) getLayoutInflater().inflate(R.layout.activity_main, null);
-            mDrawerLayout.openDrawer(fullView, true);
-        });
+    private void toolbar_button_menu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
+        button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
     }
 
     private void saveChecked() {
         state = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = state.edit();
-        editor.putBoolean("hide_kido", hide_list_kido.isChecked()); // TODO: реализовать правильное значение Boolean
+        editor.putBoolean("hide_kido", hide_list_kido.isChecked());
         editor.putBoolean("hide_korean", hide_korean.isChecked());
         editor.putBoolean("hide_video", hide_video.isChecked());
         editor.putBoolean("hide_contacts", hide_contacts.isChecked());
@@ -80,7 +91,7 @@ public class SettingsView extends BaseActivity {
 
     private void loadChange() {
         state = getPreferences(MODE_PRIVATE);
-        Boolean savedKido = state.getBoolean("hide_kido", hide_list_kido.isChecked()); // TODO: реализовать правильное значение Boolean
+        Boolean savedKido = state.getBoolean("hide_kido", hide_list_kido.isChecked());
         hide_list_kido.setChecked(savedKido);
 
         Boolean saveKorean = state.getBoolean("hide_korean", hide_korean.isChecked());
@@ -105,13 +116,6 @@ public class SettingsView extends BaseActivity {
         saveChecked();
     }
 
-    //    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.main, menu);
-//
-//        return true;
-//    }
-
     private void init() {
         hide_list_kido = findViewById(R.id.hide_list_kido);
         hide_korean = findViewById(R.id.hide_korean);
@@ -121,8 +125,12 @@ public class SettingsView extends BaseActivity {
         onCalendar = findViewById(R.id.notification_calendar);
         save_settings = findViewById(R.id.save_settings);
         button_menu = findViewById(R.id.button_menu);
+        navigationView = findViewById(R.id.nav_view);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+    }
 
-        video = findViewById(R.id.nav_video);
+    public Switch getHide_video() {
+        return hide_video;
     }
 
     //        switch_push.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) -> {

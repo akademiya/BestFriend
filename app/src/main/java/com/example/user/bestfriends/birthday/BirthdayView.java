@@ -6,13 +6,16 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -36,6 +39,8 @@ public class BirthdayView extends BaseActivity {
     private SqliteDatabase database;
     private BirthdayAdapter adapter;
     private List<Birthday> allBirthday;
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
 
 
     public static Intent getStartIntent(Context context) {
@@ -48,6 +53,16 @@ public class BirthdayView extends BaseActivity {
         setContentView(R.layout.view_list_birthday);
 
         init();
+        toolbar_button_menu();
+    }
+
+    private void toolbar_button_menu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        button_menu = findViewById(R.id.button_menu);
+        button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
     }
 
     public void init() {

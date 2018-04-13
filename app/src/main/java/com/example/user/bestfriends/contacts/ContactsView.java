@@ -5,16 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -34,16 +37,24 @@ public class ContactsView extends BaseActivity {
     private List<Contacts> allContacts;
     private FloatingActionButton fab;
     private RelativeLayout list_contacts_empty;
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_contact);
+        init();
+        toolbar_button_menu();
+    }
 
+    private void toolbar_button_menu() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        init();
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        button_menu = findViewById(R.id.button_menu);
+        button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
     }
 
     // TODO: app bar menu переход в activity по клику на item

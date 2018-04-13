@@ -5,15 +5,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -38,17 +42,30 @@ public class PersonView extends BaseActivity {
     private Button stopChronometer;
     private Button restartChronometer;
 
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_list_kido);
-
-        chronometer();
         init();
+        toolbar_button_menu();
+        chronometer();
     }
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, PersonView.class);
+    }
+
+    public void toolbar_button_menu() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        button_menu = findViewById(R.id.button_menu);
+        button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
+
     }
 
     private void init() {
@@ -65,7 +82,7 @@ public class PersonView extends BaseActivity {
         database = new SqliteDatabase(this);
         allPersons = database.listPerson();
 
-        if(allPersons.size() > 0){
+        if (allPersons.size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             personAdapter = new PersonAdapter(this, allPersons);
             recyclerView.setAdapter(personAdapter);
@@ -83,7 +100,9 @@ public class PersonView extends BaseActivity {
                 super.onScrolled(recyclerView, dx, dy);
                 if (dy > 0 && fab.getVisibility() == View.VISIBLE) {
                     fab.hide();
-                } else if (dy < 0 && fab.getVisibility() != View.VISIBLE) { fab.show(); }
+                } else if (dy < 0 && fab.getVisibility() != View.VISIBLE) {
+                    fab.show();
+                }
             }
         });
     }
@@ -102,7 +121,7 @@ public class PersonView extends BaseActivity {
         builder.setPositiveButton(R.string.add_person, (dialog, which) -> {
             final String name = nameField.getText().toString();
 
-            if(TextUtils.isEmpty(name)){
+            if (TextUtils.isEmpty(name)) {
                 Toast.makeText(PersonView.this, R.string.something_wrong, Toast.LENGTH_SHORT).show();
             } else {
                 Person newPerson = new Person(name);
@@ -147,7 +166,7 @@ public class PersonView extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if(database != null){
+        if (database != null) {
             database.close();
         }
     }

@@ -4,9 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.widget.Toolbar;
-import android.webkit.WebView;
+import android.view.Gravity;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.user.bestfriends.BaseActivity;
@@ -22,7 +23,9 @@ public class ExercisesView extends YouTubeBaseActivity implements YouTubePlayer.
     private YouTubePlayerView youTubeView;
     private YouTubePlayer player;
 
-    BaseActivity baseActivity;
+    private DrawerLayout mDrawerLayout;
+    private ImageView button_menu;
+    Toolbar toolbar;
 
     public static Intent getStartIntent(Context context) {
         return new Intent(context, ExercisesView.class);
@@ -33,10 +36,15 @@ public class ExercisesView extends YouTubeBaseActivity implements YouTubePlayer.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_exercises);
+        toolbar = findViewById(R.id.toolbar);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
+        button_menu = findViewById(R.id.button_menu);
 
         youTubeView = findViewById(R.id.youtube_exercises);
         youTubeView.initialize(Config.YOUTUBE_API_KEY, this);
 
+//        OpenDrawer openDrawer = new OpenDrawer();
+//        openDrawer.toolbar_button_menu();
     }
 
 
@@ -68,4 +76,14 @@ public class ExercisesView extends YouTubeBaseActivity implements YouTubePlayer.
     protected YouTubePlayer.Provider getYouTubePlayerProvider() {
         return youTubeView;
     }
+
+
+//    @SuppressLint("Registered")
+//    final class OpenDrawer extends BaseActivity {
+//        public void toolbar_button_menu() {
+//            setSupportActionBar(toolbar);
+//            getSupportActionBar().setHomeButtonEnabled(true);
+//            button_menu.setOnClickListener(v -> mDrawerLayout.openDrawer(Gravity.START));
+//        }
+//    }
 }
