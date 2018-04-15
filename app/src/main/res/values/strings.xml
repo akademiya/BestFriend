@@ -68,6 +68,14 @@
     <string name="share">Поделиться</string>
     <string name="send">Отправить сообщение</string>
 
+    // TP kido books
+    <string name="pr_nadezdy">Молитвы надежды</string>
+    <string name="pr_pobedy">Молитвы победы</string>
+    <string name="pr_pochtitelnosty">Молитвы почтительности</string>
+    <string name="pr_serdca">Молитвы сердца</string>
+    <string name="pr_voskresheniya">Молитвы воскрешения</string>
+    <string name="pr_zelaniya">Молитвы желания</string>
+
     // korean
             // home
     <string name="enter_in_korean"><b>Введение в корейский</b></string>
