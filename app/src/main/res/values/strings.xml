@@ -7,8 +7,12 @@
     // Settings
     <string name="action_settings">Настройки</string>
     <string name="hide_list_kido">Скрыть раздел "Список Кидо"</string>
+    <string name="hide_tp_kido">Скрыть раздел "Молитвы Отца"</string>
+    <string name="hide_calendar">Скрыть раздел "Небесный календарь"</string>
     <string name="hide_korean">Скрыть раздел "Корейский"</string>
+    <string name="hide_exercises">Скрыть раздел "Зарядка ИО"</string>
     <string name="hide_video">Скрыть раздел "Видео"</string>
+    <string name="hide_birthday">Скрыть раздел "Дни рождения"</string>
     <string name="hide_contacts">Скрыть раздел "Контакты"</string>
     <string name="notification_birthday">Уведомления о днях рождения</string>
     <string name="notification_calendar">Уведомления о дате</string>

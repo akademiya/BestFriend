@@ -23,6 +23,10 @@ public class SettingsView extends BaseActivity {
     private Switch hide_korean;
     private Switch hide_video;
     private Switch hide_contacts;
+    private Switch hide_birthday;
+    private Switch hide_calendar;
+    private Switch hide_tp_kido;
+    private Switch hide_exercises;
     private Switch onBirthday;
     private Switch onCalendar;
     private Button save_settings;
@@ -41,19 +45,10 @@ public class SettingsView extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_settings);
-
         init();
         toolbar_button_menu();
         loadChange();
         button_save_settings();
-
-        Menu nav_Menu = navigationView.getMenu();
-
-//        if (hide_list_kido.isChecked()) {
-//            nav_Menu.findItem(R.id.hide_list_kido).setVisible(false);
-//        }
-
-
     }
 
     private void button_save_settings() {
@@ -77,12 +72,41 @@ public class SettingsView extends BaseActivity {
     }
 
     private void saveChecked() {
+        Menu nav_Menu = navigationView.getMenu();
         state = getPreferences(MODE_PRIVATE);
         SharedPreferences.Editor editor = state.edit();
         editor.putBoolean("hide_kido", hide_list_kido.isChecked());
+        if (hide_list_kido.isChecked()) {
+            nav_Menu.findItem(R.id.nav_kido).setVisible(false);
+        }
         editor.putBoolean("hide_korean", hide_korean.isChecked());
+        if (hide_korean.isChecked()) {
+            nav_Menu.findItem(R.id.nav_korean).setVisible(false);
+        }
         editor.putBoolean("hide_video", hide_video.isChecked());
+        if (hide_video.isChecked()) {
+            nav_Menu.findItem(R.id.nav_video).setVisible(false);
+        }
         editor.putBoolean("hide_contacts", hide_contacts.isChecked());
+        if (hide_contacts.isChecked()) {
+            nav_Menu.findItem(R.id.nav_contact).setVisible(false);
+        }
+        editor.putBoolean("hide_tp_kido", hide_tp_kido.isChecked());
+        if (hide_tp_kido.isChecked()) {
+            nav_Menu.findItem(R.id.nav_tp_kido).setVisible(false);
+        }
+        editor.putBoolean("hide_calendar", hide_calendar.isChecked());
+        if (hide_calendar.isChecked()) {
+            nav_Menu.findItem(R.id.nav_calendar).setVisible(false);
+        }
+        editor.putBoolean("hide_exercises", hide_exercises.isChecked());
+        if (hide_exercises.isChecked()) {
+            nav_Menu.findItem(R.id.nav_exercises).setVisible(false);
+        }
+        editor.putBoolean("hide_birthday", hide_birthday.isChecked());
+        if (hide_birthday.isChecked()) {
+            nav_Menu.findItem(R.id.nav_birthday).setVisible(false);
+        }
         editor.putBoolean("onBirthday", onBirthday.isChecked());
         editor.putBoolean("onCalendar", onCalendar.isChecked());
         editor.commit();
@@ -90,6 +114,7 @@ public class SettingsView extends BaseActivity {
     }
 
     private void loadChange() {
+        Menu nav_Menu = navigationView.getMenu();
         state = getPreferences(MODE_PRIVATE);
         Boolean savedKido = state.getBoolean("hide_kido", hide_list_kido.isChecked());
         hide_list_kido.setChecked(savedKido);
@@ -103,11 +128,26 @@ public class SettingsView extends BaseActivity {
         Boolean saveContacts = state.getBoolean("hide_contacts", hide_contacts.isChecked());
         hide_contacts.setChecked(saveContacts);
 
-        Boolean saveBirthday = state.getBoolean("onBirthday", onBirthday.isChecked());
-        onBirthday.setChecked(saveBirthday);
+        Boolean saveTPkido = state.getBoolean("hide_tp_kido", hide_tp_kido.isChecked());
+        hide_tp_kido.setChecked(saveTPkido);
 
-        Boolean saveCalendar = state.getBoolean("onCalendar", onCalendar.isChecked());
-        onCalendar.setChecked(saveCalendar);
+        Boolean saveCalendar = state.getBoolean("hide_calendar", hide_calendar.isChecked());
+        hide_calendar.setChecked(saveCalendar);
+
+        Boolean saveExercises = state.getBoolean("hide_exercises", hide_exercises.isChecked());
+        hide_exercises.setChecked(saveExercises);
+
+        Boolean saveBirthday = state.getBoolean("hide_birthday", hide_birthday.isChecked());
+        hide_birthday.setChecked(saveBirthday);
+        if (saveBirthday) {
+            nav_Menu.findItem(R.id.nav_birthday).setVisible(false);
+        }
+
+        Boolean saveOnBirthday = state.getBoolean("onBirthday", onBirthday.isChecked());
+        onBirthday.setChecked(saveOnBirthday);
+
+        Boolean saveOnCalendar = state.getBoolean("onCalendar", onCalendar.isChecked());
+        onCalendar.setChecked(saveOnCalendar);
     }
 
     @Override
@@ -121,8 +161,14 @@ public class SettingsView extends BaseActivity {
         hide_korean = findViewById(R.id.hide_korean);
         hide_video = findViewById(R.id.hide_video);
         hide_contacts = findViewById(R.id.hide_contacts);
+        hide_birthday = findViewById(R.id.hide_birthday);
+        hide_calendar = findViewById(R.id.hide_calendar);
+        hide_exercises = findViewById(R.id.hide_exercises);
+        hide_tp_kido = findViewById(R.id.hide_tp_kido);
+
         onBirthday = findViewById(R.id.notification_birthday);
         onCalendar = findViewById(R.id.notification_calendar);
+
         save_settings = findViewById(R.id.save_settings);
         button_menu = findViewById(R.id.button_menu);
         navigationView = findViewById(R.id.nav_view);
