@@ -77,6 +77,8 @@
     <string name="pr_zelaniya">Молитвы желания</string>
 
     // korean
+    <string name="osnova">Основа</string>
+    <string name="grammar">Грамматика</string>
             // home
     <string name="enter_in_korean"><b>Введение в корейский</b></string>
     <string name="korean_topic"><b><font color="#FFA500">- 은/는</font></b> (topic marker)</string>
@@ -149,14 +151,14 @@
     <!-- -으니까 (1)-->
 
     // grammar
-    <string name="aso"><b>-아/어서 или -으니까</b></string>
-    <string name="eso"><b>-에 или -에서</b></string>
-    <string name="numbers"><b>Корейские числительные</b></string>
-    <string name="spacing"><b>Интервал в корейском</b></string>
-    <string name="irregular_t"><b>Неправильный глагол ㄷ</b></string>
-    <string name="irregular_r"><b>Неправильный глагол ㄹ</b></string>
-    <string name="irregular_p"><b>Неправильный глагол ㅂ</b></string>
-    <string name="irregular_s"><b>Неправильный глагол ㅅ</b></string>
-    <string name="irregular_ry"><b>Неправильный глагол 르</b></string>
-    <string name="irregular_yi"><b>Неправильный глагол 으</b></string>
+    <string name="aso">-아/어서 или -으니까</string>
+    <string name="eso">-에 или -에서</string>
+    <string name="numbers">Корейские числительные</string>
+    <string name="spacing">Интервал в корейском</string>
+    <string name="irregular_t">Неправильный глагол <b>ㄷ</b></string>
+    <string name="irregular_r">Неправильный глагол <b>ㄹ</b></string>
+    <string name="irregular_p">Неправильный глагол <b>ㅂ</b></string>
+    <string name="irregular_s">Неправильный глагол <b>ㅅ</b></string>
+    <string name="irregular_ry">Неправильный глагол <b>르</b></string>
+    <string name="irregular_yi">Неправильный глагол <b>으</b></string>
 </resources>

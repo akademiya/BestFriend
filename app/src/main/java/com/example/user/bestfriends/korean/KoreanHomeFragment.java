@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.user.bestfriends.DestenationFragment;
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.korean.adapter.KoreanViewAdapter;
 import com.example.user.bestfriends.korean.adapter.RecyclerViewClickListener;
+import com.example.user.bestfriends.korean.home.HomeObject;
+import com.example.user.bestfriends.korean.home.HomeThis;
+import com.example.user.bestfriends.korean.home.HomeTopic;
 
 import java.util.ArrayList;
 
@@ -99,10 +101,22 @@ public class KoreanHomeFragment extends Fragment implements RecyclerViewClickLis
             case 0:
                 break;
             case 1:
-                startActivity(new Intent(getActivity(), DestenationFragment.class));
+                startActivity(new Intent(getActivity(), HomeTopic.class));
                 break;
             case 2:
-                startActivity(new Intent(getActivity(), DestActivity.class));
+                startActivity(new Intent(getActivity(), HomeObject.class));
+                break;
+            case 3:
+                startActivity(new Intent(getActivity(), HomeThis.class));
+                break;
+            case 4:
+                break;
+            case 5:
+                startActivity(new Intent(getActivity(), HomeThis.class));
+                break;
+            case 9:
+                break;
+            case 14:
                 break;
                 default: break;
         }

@@ -40,8 +40,9 @@
         <activity android:name=".contacts.ContactsView" />
         <activity android:name=".settings.SettingsView" />
 
-        <activity android:name=".korean.DestActivity"/>
-        <activity android:name=".DestenationFragment"/>
+        <activity android:name=".korean.home.HomeTopic"/>
+        <activity android:name=".korean.home.HomeObject"/>
+        <activity android:name=".korean.home.HomeThis"/>
 
         <activity android:name=".korean.KoreanView"/>
         <activity android:name=".korean.grammar.GrammarAso"/>
