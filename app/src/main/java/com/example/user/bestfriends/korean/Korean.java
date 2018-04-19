@@ -1,14 +1,16 @@
 package com.example.user.bestfriends.korean;
 
-public class RecyclerViewModel {
+public class Korean {
 
     private int itemName;
+    private int idLesson;
 
-    public RecyclerViewModel(int itemName) {
+    public Korean(int itemName) {
         this.itemName = itemName;
     }
 
     public int getItemName() {
         return itemName;
     }
+    public int getIdLesson() { return idLesson; }
 }

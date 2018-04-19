@@ -8,43 +8,40 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.user.bestfriends.R;
-import com.example.user.bestfriends.korean.RecyclerViewModel;
+import com.example.user.bestfriends.korean.Korean;
 
 import java.util.ArrayList;
 
 public class KoreanViewAdapter extends RecyclerView.Adapter<KoreanViewHolder> {
 
     Context context;
-    KoreanViewHolder.ItemListener mItemListener;
-    ArrayList<RecyclerViewModel> mList;
+    ArrayList<Korean> listLessons;
+    private RecyclerViewClickListener mListener;
 
-    public KoreanViewAdapter(Context context, ArrayList<RecyclerViewModel> mList, KoreanViewHolder.ItemListener mItemListener) {
+    public KoreanViewAdapter(Context context, ArrayList<Korean> listLessons) {
         this.context = context;
-        this.mList = mList;
-        this.mItemListener = mItemListener;
+        this.listLessons = listLessons;
     }
 
-    public void setOnItemClickListener(KoreanViewHolder.ItemListener mItemListener) {
-        this.mItemListener = mItemListener;
+    public KoreanViewAdapter(RecyclerViewClickListener listener) { mListener = listener; }
+
+    public void setOnItemClickListener(RecyclerViewClickListener listener) {
+        mListener = listener;
     }
 
     @NonNull
     @Override
     public KoreanViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater
-                .from(parent.getContext())
-                .inflate(R.layout.item_korean_home_list, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_korean_home_list, parent, false);
         context = parent.getContext();
-        return new KoreanViewHolder(context, v);
+        return new KoreanViewHolder(v, mListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull KoreanViewHolder holder, int position) {
-        holder.setData(mList.get(position));
+        holder.setName(listLessons.get(position));
     }
 
     @Override
-    public int getItemCount() {
-        return mList.size();
-    }
+    public int getItemCount() { return listLessons.size(); }
 }

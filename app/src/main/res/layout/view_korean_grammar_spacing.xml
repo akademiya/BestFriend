@@ -1,6 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dest_activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:padding="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp">
+
+        <TextView
+            style="@style/Toolbar.TitleText"
+            android:layout_toEndOf="@+id/button_menu"
+            android:text="@string/korean" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/parent_margin">
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin8"
+                android:text="@string/spacing"
+                android:textStyle="bold" />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am using a RecyclerView to display my drawer list item in my Navigation Drawer. OnClick of the drawer list item, I am able to open different activities, however I would like to be able to open fragments which will be replacing the main activity layout." />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am using a RecyclerView to display my drawer list item in my Navigation Drawer. OnClick of the drawer list item, I am able to open different activities, however I would like to be able to open fragments which will be replacing the main activity layout." />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am using a RecyclerView to display my drawer list item in my Navigation Drawer. OnClick of the drawer list item, I am able to open different activities, however I would like to be able to open fragments which will be replacing the main activity layout." />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am using a RecyclerView to display my drawer list item in my Navigation Drawer. OnClick of the drawer list item, I am able to open different activities, however I would like to be able to open fragments which will be replacing the main activity layout." />
+
+            <TextView
+                style="@style/TextStyle_Body2_Primary_Dark"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="I am using a RecyclerView to display my drawer list item in my Navigation Drawer. OnClick of the drawer list item, I am able to open different activities, however I would like to be able to open fragments which will be replacing the main activity layout." />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,53 +1,41 @@
 package com.example.user.bestfriends.korean.adapter;
 
-import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.user.bestfriends.R;
-import com.example.user.bestfriends.korean.RecyclerViewModel;
+import com.example.user.bestfriends.korean.Korean;
 
-public class KoreanViewHolder extends RecyclerView.ViewHolder {
+public class KoreanViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-    RecyclerViewModel pName;
-    TextView rule;
-    RelativeLayout container_rule;
-    ItemListener mListener;
-    Context context;
+    Korean pName;
+    TextView lesson;
+    RelativeLayout container_lesson;
+    private RecyclerViewClickListener rvListener;
 
-    public KoreanViewHolder(Context context, View view) {
+    public KoreanViewHolder(View view, RecyclerViewClickListener listener) {
         super(view);
-//        view.setOnClickListener(this);
-        rule = view.findViewById(R.id.rule);
-        container_rule = view.findViewById(R.id.container_rule);
-
-        view.setOnClickListener(v -> {
-            int position = getAdapterPosition();
-            if (mListener != null) {
-                mListener.onItemClick(v, getAdapterPosition());
-            }
-            Toast.makeText(context, pName.getItemName(), Toast.LENGTH_SHORT).show();
-        });
+        this.rvListener = listener;
+        view.setOnClickListener(this);
+        lesson = view.findViewById(R.id.rule);
+        container_lesson = view.findViewById(R.id.container_rule);
     }
 
-    public void setData(RecyclerViewModel pName) {
+    public void setName(Korean pName) {
         this.pName = pName;
-        rule.setText(pName.getItemName());
+        lesson.setText(pName.getItemName());
     }
 
-//    @Override
-//    public void onClick(View v) {
-//        if (mListener != null) {
-//            mListener.onItemClick(pName, getAdapterPosition());
-//        }
-//    }
-
-    public interface ItemListener {
-//        void onItemClick(RecyclerViewModel pName, int position);
-        void onItemClick(View view, int position);
+    @Override
+    public void onClick(View view) {
+        if (rvListener != null) {
+            int position = getAdapterPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                rvListener.onItemClick(position);
+            }
+        }
     }
+
 }

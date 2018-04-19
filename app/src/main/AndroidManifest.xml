@@ -39,6 +39,21 @@
         <activity android:name=".birthday.BirthdayView"/>
         <activity android:name=".contacts.ContactsView" />
         <activity android:name=".settings.SettingsView" />
+
+        <activity android:name=".korean.DestActivity"/>
+        <activity android:name=".DestenationFragment"/>
+
+        <activity android:name=".korean.KoreanView"/>
+        <activity android:name=".korean.grammar.GrammarAso"/>
+        <activity android:name=".korean.grammar.GrammarEso"/>
+        <activity android:name=".korean.grammar.GrammarNumbers"/>
+        <activity android:name=".korean.grammar.GrammarSpacing"/>
+        <activity android:name=".korean.grammar.GrammarVerbP"/>
+        <activity android:name=".korean.grammar.GrammarVerbR"/>
+        <activity android:name=".korean.grammar.GrammarVerbRy"/>
+        <activity android:name=".korean.grammar.GrammarVerbS"/>
+        <activity android:name=".korean.grammar.GrammarVerbT"/>
+        <activity android:name=".korean.grammar.GrammarVerbYi"/>
         <activity android:name=".MainView" />
 
     </application>

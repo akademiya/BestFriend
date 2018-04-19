@@ -16,7 +16,7 @@ import com.example.user.bestfriends.books.BooksView;
 import com.example.user.bestfriends.calendar.HCalendarView;
 import com.example.user.bestfriends.contacts.ContactsView;
 import com.example.user.bestfriends.exercises.ExercisesView;
-import com.example.user.bestfriends.korean.TabFragment;
+import com.example.user.bestfriends.korean.KoreanView;
 import com.example.user.bestfriends.list_kido.PersonView;
 import com.example.user.bestfriends.mense.MenseView;
 import com.example.user.bestfriends.settings.SettingsView;
@@ -78,12 +78,13 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.nav_korean:
-                    FM = getSupportFragmentManager();
-                    FT = FM.beginTransaction();
-                    FT.replace(R.id.activity_content, new TabFragment()).commit();
-
-                    FragmentTransaction fragmentTransaction = FM.beginTransaction();
-                    fragmentTransaction.replace(R.id.activity_content, new TabFragment()).commit();
+//                    FM = getSupportFragmentManager();
+//                    FT = FM.beginTransaction();
+//                    FT.replace(R.id.activity_content, new TabFragment()).commit();
+//
+//                    FragmentTransaction fragmentTransaction = FM.beginTransaction();
+//                    fragmentTransaction.replace(R.id.activity_content, new TabFragment()).commit();
+                    startActivity(KoreanView.getStartIntent(this));
 
                     fullView.closeDrawers();
                     return true;
