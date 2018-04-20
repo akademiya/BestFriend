@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.user.bestfriends.DestenationFragment;
 import com.example.user.bestfriends.R;
 import com.example.user.bestfriends.korean.adapter.KoreanViewAdapter;
 import com.example.user.bestfriends.korean.adapter.RecyclerViewClickListener;

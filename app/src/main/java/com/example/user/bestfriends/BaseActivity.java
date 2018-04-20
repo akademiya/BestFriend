@@ -4,9 +4,8 @@ package com.example.user.bestfriends;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
@@ -14,7 +13,6 @@ import android.widget.FrameLayout;
 import com.example.user.bestfriends.birthday.BirthdayView;
 import com.example.user.bestfriends.books.BooksView;
 import com.example.user.bestfriends.calendar.HCalendarView;
-import com.example.user.bestfriends.contacts.ContactsView;
 import com.example.user.bestfriends.exercises.ExercisesView;
 import com.example.user.bestfriends.korean.KoreanView;
 import com.example.user.bestfriends.list_kido.PersonView;
@@ -25,9 +23,6 @@ import com.example.user.bestfriends.tp_photo.TPphotoView;
 import com.example.user.bestfriends.video.VideoView;
 
 public class BaseActivity extends AppCompatActivity {
-
-    FragmentManager FM;
-    FragmentTransaction FT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
@@ -78,12 +73,6 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.nav_korean:
-//                    FM = getSupportFragmentManager();
-//                    FT = FM.beginTransaction();
-//                    FT.replace(R.id.activity_content, new TabFragment()).commit();
-//
-//                    FragmentTransaction fragmentTransaction = FM.beginTransaction();
-//                    fragmentTransaction.replace(R.id.activity_content, new TabFragment()).commit();
                     startActivity(KoreanView.getStartIntent(this));
 
                     fullView.closeDrawers();
@@ -100,7 +89,8 @@ public class BaseActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.nav_contact:
-                    startActivity(ContactsView.getStartIntent(this));
+                    Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
+                    startActivityForResult(intent, 1);
                     fullView.closeDrawers();
                     return true;
 
